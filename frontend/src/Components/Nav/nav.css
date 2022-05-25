@@ -1,0 +1,38 @@
+.navbar {
+    background-color: white;
+    box-shadow: 1px 1px 5px gray;
+}
+
+.nav-item {
+    color: black;
+    font-size: 17px;
+}
+
+.nav-link {
+    font-weight: bold;
+    color: black;
+}
+
+.qbutton {
+    background-color: rgb(240, 37, 10);
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid rgb(240, 37, 10);
+    transition: .5s;
+    width: 60%;
+}
+
+.qbutton a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.qbutton:hover {
+    background-color: rgb(189, 8, 8);
+    border: 1px solid rgb(189, 9, 9);
+}
+
+.form-control {
+    transition: .5s;
+}
