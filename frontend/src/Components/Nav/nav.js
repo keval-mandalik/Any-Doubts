@@ -1,4 +1,4 @@
-import "./nav.css"
+import "./Nav.css"
 function Nav() {
     return (
         <>
@@ -7,12 +7,12 @@ function Nav() {
                 <nav className="navbar navbar-expand-md navbar-light">
                     <a href="#" className="navbar-brand me-5 ms-2">
                         <img src="https://assets.entrepreneur.com/content/3x2/2000/20190211224126-quora-logo-crop.jpeg"
-                            alt="" style="width: 150px; height: 60px;" />
+                            alt="" style={{width: "150px", height: "60px"}} />
                     </a>
 
                     <button className="navbar-toggler custom-toggler" type="button" data-bs-target="#navbar"
                         data-bs-toggle="collapse">
-                        <span classNameName="navbar-toggler-icon"></span>
+                        <span className="navbar-toggler-icon"></span>
                     </button>
 
                     <div className="collapse navbar-collapse" id="navbar">
@@ -36,23 +36,23 @@ function Nav() {
                         <form action="#" className="d-flex">
                             <input className="form-control mx-3" type="text" placeholder="Search" />
                             <a href="#"><img className="mx-3" src="https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png"
-                                alt="profile" style="width: 40px; height: 40px; border-radius: 20px;" /></a>
+                                alt="profile" style={{width: "40px", height:" 40px", borderRadius: "20px"}} /></a>
                             <button className="btn qbutton" type="button"><a href="#">Add Question</a></button>
                         </form>
 
                     </div>
                 </nav>
 
-                <div class="ask d-flex m-3" style="justify-content:left;">
-                    <div class="profile">
-                        <a href="#"><img class="mx-3" src="https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png"
-                            alt="profile" style="width: 40px; height: 40px; border-radius: 20px;" /></a>
+                <div className="ask d-flex m-3" style={{justifyContent:"left"}}>
+                    <div className="profile">
+                        <a href="#"><img className="mx-3" src="https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png"
+                            alt="profile" style={{width: "40px", height:" 40px", borderRadius: "20px"}} /></a>
                     </div>
 
-                    <div class="question ">
+                    <div className="question ">
                         <form action="#">
-                            <input type="text" class="form-control" placeholder="What do you want to ask or share ?"
-                                style="width: 150%; border-radius: 20px;" />
+                            <input type="text" className="form-control" placeholder="What do you want to ask or share ?"
+                                style={{width:" 150%", borderRadius: "20px" }}/>
                         </form>
                     </div>
                 </div>

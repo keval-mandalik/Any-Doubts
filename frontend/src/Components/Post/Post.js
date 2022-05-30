@@ -5,12 +5,12 @@ function Post(){
                 <div className="post-user p-2 d-flex">
                     <div className="post-user-dp">
                         <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Virat_Kohli.jpg"
-                                alt="profile" style="width: 40px; height: 40px; border-radius: 20px;" /></a>
+                                alt="profile" style={{width: "40px", height:" 40px", borderRadius: "20px"}} /></a>
                     </div>
 
                     <div className="post-user-details pt-2 px-2">
                         <div className="post-user-name">
-                            <h6 style="line-height: 3px;"><b> Virat Kohli</b></h6>
+                            <h6 style={{lineHeight: "3px"}}><b> Virat Kohli</b></h6>
                             <p>Indian Cricket Team Member</p>
                         </div>
                     </div>
@@ -26,7 +26,7 @@ function Post(){
 
                     <div className="post-picture">
                         <img src="https://www.crictracker.com/wp-content/uploads/2022/05/Virat-Kohli-3.jpg" alt="post"
-                            style="width: 100%; height: 330px;" />
+                            style={{width: "100%", height: "330px"}} />
                     </div>
                 </div>
             </div>
