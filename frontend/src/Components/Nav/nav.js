@@ -43,7 +43,7 @@ function Nav() {
                     </div>
                 </nav>
 
-                <div className="ask d-flex m-3" style={{justifyContent:"left"}}>
+                {/* <div className="ask d-flex m-3" style={{justifyContent:"left"}}>
                     <div className="profile">
                         <a href="#"><img className="mx-3" src="https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png"
                             alt="profile" style={{width: "40px", height:" 40px", borderRadius: "20px"}} /></a>
@@ -55,7 +55,7 @@ function Nav() {
                                 style={{width:" 150%", borderRadius: "20px" }}/>
                         </form>
                     </div>
-                </div>
+                </div> */}
             </div>
 
         </>

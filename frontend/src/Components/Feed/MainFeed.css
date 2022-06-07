@@ -1,0 +1,7 @@
+.feed{
+    display:flex;
+    flex-direction: column;
+    flex:0.6;
+    /* just for designing purpose latter we can remove it */
+    margin: 20px 20px;
+}

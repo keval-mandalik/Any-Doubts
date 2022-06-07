@@ -1,5 +1,6 @@
 import React from 'react'
-
+import { Avatar } from '@material-ui/core'
+import './QuoraBox.css';
 const QuoraBox = () => {
   return (
     <div className='quoraBox'>
@@ -7,7 +8,7 @@ const QuoraBox = () => {
         <Avatar/>
       </div>
       <div className="quoraBox__quora">
-        <p>What is Your Question/Link</p>
+        <h5>What is Your Question/Link?</h5>
       </div>
     </div>
   )

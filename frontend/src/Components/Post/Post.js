@@ -1,4 +1,4 @@
-import "./Post.css"
+// import "./Post.css"
 function Post(){
     return(
         <div className="post p-2 m-3">
