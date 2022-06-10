@@ -1,0 +1,29 @@
+.Widget__Contents{
+    display: flex;
+    cursor: pointer;
+}
+
+.Widget__Content{
+    margin: 5px;
+    display: flex;
+    padding: 5px;
+    border: 1px solid lightgray;
+}
+
+.Widget__Content >img{
+    height: 30px;
+    border-radius: 5px;
+}
+
+.Widget__ContentTitle{
+    margin-left: 10px;
+}
+
+.Widget__Content,Title > h5{
+    color: rgb(68,68,68);
+}
+
+.Widget__ContentTitle>p{
+    color: gray;
+    font-size: small;
+}
