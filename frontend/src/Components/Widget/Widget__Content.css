@@ -19,11 +19,11 @@
     margin-left: 10px;
 }
 
-.Widget__Content,Title > h5{
+.Widget__ContentTitle > h6{
     color: rgb(68,68,68);
 }
 
 .Widget__ContentTitle>p{
     color: gray;
-    font-size: small;
+    font-size: 12px;
 }
