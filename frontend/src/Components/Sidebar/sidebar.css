@@ -1,7 +1,6 @@
 .sidebar{
-    margin-top: 10px;
     flex: 0.2;
-    max-width: 200px;
+    max-width: 250px;
 }
 
   .sidebarOptions {
@@ -19,6 +18,14 @@
   .sidebarOption:hover {
     background: rgb(211, 211, 211);
     border-radius: 5px;
+  }
+
+  .sidebarOption:hover p{
+    color: black;
+  }
+
+  .sidebarOption:hover svg{
+    color: black;
   }
 
   .sidebarOption > img {

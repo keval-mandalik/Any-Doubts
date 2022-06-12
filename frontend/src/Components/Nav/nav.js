@@ -1,13 +1,14 @@
 import "./Nav.css"
+import logo from "../../../src/images/logo2.png"
 function Nav() {
     return (
         <>
             <div className="container-fluid">
 
-                <nav className="navbar navbar-expand-md navbar-light">
+                <nav className="navbar navbar-expand-md navbar-light fixed-top">
                     <a href="#" className="navbar-brand me-5 ms-2">
-                        <img src="https://assets.entrepreneur.com/content/3x2/2000/20190211224126-quora-logo-crop.jpeg"
-                            alt="" style={{width: "150px", height: "60px"}} />
+                        <img src={logo}
+                            alt="Logo" style={{width: "80px", height: "60px"}} />
                     </a>
 
                     <button className="navbar-toggler custom-toggler" type="button" data-bs-target="#navbar"
