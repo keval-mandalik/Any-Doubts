@@ -12,8 +12,9 @@ import {
 import CloseIcon from "@material-ui/icons/Close"
 import { Modal } from "react-responsive-modal"
 import "react-responsive-modal/styles.css"
-import "react-quill/dist/quill.snow.css"
-import ReactQuill from "react-quill"
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+
 
 const Post = () => {
 
@@ -49,7 +50,7 @@ const Post = () => {
                         </div>
 
                         <div className='modal__answer'>
-                            <ReactQuill placeholder='Enter your Answer' />
+                            <Editor />;
                         </div>
 
                         <div className='modal__button'>
@@ -122,3 +123,8 @@ const Post = () => {
 }
 
 export default Post;
+
+// useEffect(() => {
+//     const html = convertToHTML(editorState.getCurrentContent());
+//     props.setContentHtml(html);
+//   }, [editorState]);
