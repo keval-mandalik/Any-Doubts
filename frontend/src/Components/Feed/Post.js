@@ -19,6 +19,7 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 const Post = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [value, setValue] = useState('');
     const Close = <CloseIcon />
     return (
         <div className='post'>

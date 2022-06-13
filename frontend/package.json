@@ -11,6 +11,10 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.4.0",
+<<<<<<< HEAD
+=======
+    "react-quill": "^1.3.5",
+>>>>>>> 9405e91bf61c295700eadd27440afb798b9aca4d
     "react-responsive-modal": "^6.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
