@@ -1,5 +1,5 @@
 import "./Nav.css"
-import logo from "../../../src/images/logo2.png"
+import logo from "../../../src/images/logo.png"
 function Nav() {
     return (
         <>

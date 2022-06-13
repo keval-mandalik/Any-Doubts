@@ -18,6 +18,7 @@ import ReactQuill from "react-quill"
 const Post = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [value, setValue] = useState('');
     const Close = <CloseIcon />
     return (
         <div className='post'>
@@ -49,7 +50,9 @@ const Post = () => {
                         </div>
 
                         <div className='modal__answer'>
-                            <ReactQuill placeholder='Enter your Answer' />
+                            {/* <ReactQuill placeholder='Enter your Answer' />
+                            <ReactQuill placeholder='Enter your Answer' /> */}
+                            <ReactQuill theme="snow" value={value} onChange={setValue} placeholder="Enter your answer"/>
                         </div>
 
                         <div className='modal__button'>
