@@ -2,7 +2,7 @@ import React from 'react'
 import MainFeed from './Components/Feed/MainFeed'
 import Sidebar from './Components/Sidebar/Sidebar'
 import Widget from './Components/Widget/Widget'
-import Nav from './Components/Nav/Nav'
+import Nav from './Components/Nav/nav'
 import "./Quora.css"
 
 function Quora() {

@@ -1,4 +1,4 @@
-import "./Nav.css"
+import "./nav.css"
 import logo from "../../../src/images/logo2.png"
 function Nav() {
     return (
