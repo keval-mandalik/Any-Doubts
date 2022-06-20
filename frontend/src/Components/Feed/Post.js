@@ -11,14 +11,16 @@ import {
 } from '@material-ui/icons'
 import CloseIcon from "@material-ui/icons/Close"
 import { Modal } from "react-responsive-modal"
-import "react-responsive-modal/styles.css"
-import "react-quill/dist/quill.snow.css"
-import ReactQuill from "react-quill"
+import "react-responsive-modal/styles.css";
+import { DefaultEditor } from 'react-simple-wysiwyg';
 
 const Post = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [value, setValue] = useState('');
+    const [html, setHtml] = React.useState('my <b>HTML</b>');
+    function onChange(e) {
+        setHtml(e.target.value);
+      }
     const Close = <CloseIcon />
     return (
         <div className='post'>
@@ -50,9 +52,7 @@ const Post = () => {
                         </div>
 
                         <div className='modal__answer'>
-                            {/* <ReactQuill placeholder='Enter your Answer' />
-                            <ReactQuill placeholder='Enter your Answer' /> */}
-                            <ReactQuill theme="snow" value={value} onChange={setValue} placeholder="Enter your answer"/>
+                        <DefaultEditor value={html} onChange={onChange} />
                         </div>
 
                         <div className='modal__button'>
@@ -125,3 +125,11 @@ const Post = () => {
 }
 
 export default Post;
+
+// useEffect(() => {
+//     const html = convertToHTML(editorState.getCurrentContent());
+//     props.setContentHtml(html);
+//   }, [editorState]);
+
+//editor documetation link
+// https://www.npmjs.com/package/react-simple-wysiwyg
