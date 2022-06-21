@@ -52,7 +52,7 @@ const Post = () => {
                         </div>
 
                         <div className='modal__answer'>
-                        <DefaultEditor value={html} onChange={onChange} />
+                        <DefaultEditor value={html} onChange={onChange}/>
                         </div>
 
                         <div className='modal__button'>
