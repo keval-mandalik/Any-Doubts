@@ -1,14 +1,18 @@
 const mongoose = require('mongoose');
 
-const QuestionSchema = new mongoose.Schema(
+const AnswerSchema = new mongoose.Schema(
   {
-    question: {
+    question:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'question'
+    },
+    answer: {
       type: String,
       required: [true, 'Please add a question'],
-      unique: true,
+      unique: false,
       trim: true,
-      maxlength: [500, 'Question can not be more than 500 characters'],
     },
+    
     PostedBy: {
       type: String,
       match: [
@@ -22,4 +26,4 @@ const QuestionSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('Question', QuestionSchema);
+module.exports = mongoose.model('answer', AnswerSchema);
