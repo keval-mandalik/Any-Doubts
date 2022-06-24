@@ -9,6 +9,7 @@ const QuestionSchema = new mongoose.Schema(
       trim: true,
       maxlength: [500, 'Question can not be more than 500 characters'],
     },
+    questionUrl : String,
     PostedBy: {
       type: String,
       match: [
@@ -19,7 +20,15 @@ const QuestionSchema = new mongoose.Schema(
     Upvotes: {
       type: Number
     },
+    answers:{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:'Answers'
+    },
+    createdAt:{
+      type:Date,
+      default:Date.now()
+    }
   }
 );
 
-module.exports = mongoose.model('Question', QuestionSchema);
+module.exports = mongoose.model('Questions', QuestionSchema);

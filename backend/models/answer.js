@@ -4,11 +4,11 @@ const AnswerSchema = new mongoose.Schema(
   {
     question:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'question'
+        ref:'Questions'
     },
     answer: {
       type: String,
-      required: [true, 'Please add a question'],
+      required: [true, 'Please add a asnwer'],
       unique: false,
       trim: true,
     },
@@ -23,7 +23,11 @@ const AnswerSchema = new mongoose.Schema(
     Upvotes: {
       type: Number
     },
-  }
+    createdAt:{
+      type:Date,
+      default:Date.now()
+    }
+    }
 );
 
-module.exports = mongoose.model('answer', AnswerSchema);
+module.exports = mongoose.model('Answers', AnswerSchema);
