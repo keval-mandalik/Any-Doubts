@@ -1,6 +1,18 @@
+import React, { useState } from 'react'
 import "./Nav.css"
 import logo from "../../../src/images/logo.png"
+import Modal from "react-responsive-modal";
+import "react-responsive-modal/styles.css";
+import CloseIcon from "@material-ui/icons/Close"
+import { Avatar, Input } from '@material-ui/core';
+import { ExpandMore, PeopleAltOutlined } from '@material-ui/icons';
+
 function Nav() {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [inputUrl, setInputUrl] = useState("");
+    const Close = <CloseIcon />
+
     return (
         <>
             <div className="container-fluid">
@@ -8,7 +20,7 @@ function Nav() {
                 <nav className="navbar navbar-expand-md navbar-light fixed-top">
                     <a href="#" className="navbar-brand me-5 ms-2">
                         <img src={logo}
-                            alt="Logo" style={{width: "80px", height: "60px"}} />
+                            alt="Logo" style={{ width: "80px", height: "60px" }} />
                     </a>
 
                     <button className="navbar-toggler custom-toggler" type="button" data-bs-target="#navbar"
@@ -37,8 +49,74 @@ function Nav() {
                         <form action="#" className="d-flex">
                             <input className="form-control mx-3" type="text" placeholder="Search" />
                             <a href="#"><img className="mx-3" src="https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png"
-                                alt="profile" style={{width: "40px", height:" 40px", borderRadius: "20px"}} /></a>
-                            <button className="btn qbutton" type="button"><a href="#">Add Question</a></button>
+                                alt="profile" style={{ width: "40px", height: " 40px", borderRadius: "20px" }} /></a>
+                            <button className="btn qbutton" type="button" onClick={() => setIsModalOpen(true)}><a href="#">Add Question</a></button>
+
+                            <Modal
+                                open={isModalOpen}
+                                closeIcon={Close}
+                                onClose={() => setIsModalOpen(false)}
+                                closeOnEsc
+                                center
+                                closeOnOverlayClick={false}
+                                styles={{
+                                    overlay: {
+                                        height: "auto",
+                                    },
+                                }}
+                            >
+                                <div className='modal__title'>
+                                    <h5>Add Question</h5>
+                                    <h5>Share Link</h5>
+                                </div>
+
+                                <div className='modal__info'>
+                                    <Avatar className='avatar' />
+
+                                    <div className='modal__scope'>
+                                        <PeopleAltOutlined />
+                                        <p>Public</p>
+                                        <ExpandMore />
+                                    </div>
+                                </div>
+
+                                <div className='modal__field'>
+                                    <Input type='text' placeholder='Start your question with "What","How","Why", etc.' />
+                                    <div style={{
+                                        display: "flex",
+                                        flexDirection: "column"
+                                    }}>
+                                        <input type="text"
+                                        value= {inputUrl}
+                                        onChange={(e) => setInputUrl(e.target.value)}
+                                        style={{
+                                            margin:"10px 0",
+                                            border: "1px solid lightgray",
+                                            padding: "10px",
+                                            outline: "2px solid black"
+                                        }} 
+                                        placeholder="Optional: include a lnk that gives a context " />
+                                        {
+                                            inputUrl !==""&& <img style={{
+                                                height: "40vh",
+                                                objectFit: "contain"
+                                            }} src={inputUrl} alt="Question Image" />
+                                        }
+
+                                    </div>
+                                </div>
+
+                                <div className='modal__button'>
+                                    <button className='cancel' onClick={() => setIsModalOpen(false)}>
+                                        Cancel
+                                    </button>
+
+                                    <button type='submit' className='add'>
+                                        Add Question
+                                    </button>
+                                </div>
+
+                            </Modal>
                         </form>
 
                     </div>

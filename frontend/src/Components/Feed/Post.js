@@ -52,7 +52,9 @@ const Post = () => {
                         </div>
 
                         <div className='modal__answer'>
-                        <DefaultEditor value={html} onChange={onChange}/>
+                        <DefaultEditor value={html} onChange={onChange} style={{
+                            height: "40vh",
+                        }}/>
                         </div>
 
                         <div className='modal__button'>
@@ -61,7 +63,7 @@ const Post = () => {
                             </button>
 
                             <button type='submit' className='add'>
-                                Add Question
+                                Add Answer
                             </button>
                         </div>
 
