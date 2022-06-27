@@ -17,6 +17,8 @@
     display: flex;
     flex-direction: row;
     padding: 0px 10px;
+    flex:auto;
+    justify-content: space-between;
 }
 
 .react-responsive-modal-modal{

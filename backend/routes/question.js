@@ -17,7 +17,6 @@ router.post('/addquestion',async (req,res)=>{
 
 // To get all Questions Posted...
 router.get('/questions', async(req, res, next) => {
-
     try {
         const question = await Question.find();
         res.status(200).json(question);
@@ -25,7 +24,6 @@ router.get('/questions', async(req, res, next) => {
         console.error(error.message);
         res.status(500).send("Internal Server Error");
     }
-
 })
 
 // To get a specific Question using its id...

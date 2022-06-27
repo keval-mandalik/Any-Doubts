@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import "./Nav.css"
 import logo from "../../../src/images/logo.png"
 import Modal from "react-responsive-modal";
@@ -12,6 +12,15 @@ function Nav() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [inputUrl, setInputUrl] = useState("");
     const Close = <CloseIcon />
+    const [question, setQuestion] = useState("");
+
+    // useEffect(()=>{console.log(question)},[question])
+
+    const submitHandler = (e) => {
+        // e.preventDefault();
+        console.log("submitted")
+        const values = {question, inputUrl};
+    }
 
     return (
         <>
@@ -46,7 +55,7 @@ function Nav() {
                                 <a className="nav-link" href="#"><i className="fa-solid fa-bell"></i></a>
                             </li>
                         </ul>
-                        <form action="#" className="d-flex">
+                        <form action="#" className="d-flex" >
                             <input className="form-control mx-3" type="text" placeholder="Search" />
                             <a href="#"><img className="mx-3" src="https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png"
                                 alt="profile" style={{ width: "40px", height: " 40px", borderRadius: "20px" }} /></a>
@@ -81,7 +90,7 @@ function Nav() {
                                 </div>
 
                                 <div className='modal__field'>
-                                    <Input type='text' placeholder='Start your question with "What","How","Why", etc.' />
+                                    <Input type='text' placeholder='Start your question with "What","How","Why", etc.' value={question} onChange={(e)=>setQuestion(e.target.value)}/>
                                     <div style={{
                                         display: "flex",
                                         flexDirection: "column"
@@ -111,7 +120,7 @@ function Nav() {
                                         Cancel
                                     </button>
 
-                                    <button type='submit' className='add'>
+                                    <button type='submit' onClick={(e)=>submitHandler()} className='add'>
                                         Add Question
                                     </button>
                                 </div>
