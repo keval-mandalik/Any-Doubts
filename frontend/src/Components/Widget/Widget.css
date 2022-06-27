@@ -5,7 +5,7 @@
     flex-direction: column;
     border: 1px solid lightgray;
     border-radius: 5px;
-    background-color: white;
+    background-color: #293241;
     height: fit-content;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .Widget__Header > h6{
-    color: rgb(80, 80, 80);
+    color: white;
     text-align: center;
     padding: 10px 5px;
 }

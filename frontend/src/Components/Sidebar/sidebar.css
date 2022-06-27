@@ -11,8 +11,10 @@
   .sidebarOption {
     display: flex;
     align-items: center;
+    color: white;
     padding: 0px 10px;
     cursor: pointer;
+    background-color: #293240;
   }
   
   .sidebarOption:hover {
@@ -41,7 +43,7 @@
 
   .sidebarOption > p {
     margin-left: 10px;
-    color: gray;
+    color: white;
     font-weight: 400;
     font-size: 13px;
     margin-top: 16px;

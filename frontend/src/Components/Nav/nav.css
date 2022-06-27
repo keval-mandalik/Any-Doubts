@@ -1,5 +1,5 @@
 .navbar {
-    background-color: white;
+    background-color: rgb(34, 46, 80);
     box-shadow: 1px 1px 5px gray;
 }
 
@@ -8,29 +8,36 @@
     font-size: 17px;
 }
 
+img{
+  filter:invert(1);
+}
+
 .nav-link {
     font-weight: bold;
     color: black;
 }
 
 .qbutton {
-    background-color: rgb(240, 37, 10);
+    background-color: white;
     border-radius: 10px;
     outline: none;
-    border: 1px solid rgb(240, 37, 10);
+    border: 1px solid rgb(34, 46, 80);
     transition: .5s;
     width: 60%;
 }
 
 .qbutton a {
     text-decoration: none;
-    color: white;
+    color: rgb(34, 46, 80);
     font-weight: bold;
+}
+.qbutton a:hover{
+    color: white;
 }
 
 .qbutton:hover {
-    background-color: rgb(189, 8, 8);
-    border: 1px solid rgb(189, 9, 9);
+    background-color: rgb(34, 46, 80);
+    border: 1px solid white;
 }
 
 .form-control {
@@ -108,3 +115,8 @@
     margin-left: 5px;
   }
   
+
+
+  .navbar-light .navbar-nav .nav-link{
+    color:white;
+  }

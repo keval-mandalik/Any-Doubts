@@ -84,7 +84,7 @@ const Post = () => {
                 </div>
             </div>
             <p style={{
-                color: "rgba(0,0,0,0.5)",
+                color: "white",
                 fontSize: "12px",
                 fontWeight: "bold",
                 margin: "10px 0px"
@@ -107,7 +107,7 @@ const Post = () => {
                         marginBotton: "10px",
                         fontSize: "12px",
                         fontWeight: 600,
-                        color: "#888"
+                        color: "white"
                     }} className='post-answered'>
                         <Avatar />
                         <div style={{
@@ -118,7 +118,7 @@ const Post = () => {
                         </div>
                     </div>
                     <div className='post-answer'>
-                        <h4>This is test Answer</h4>
+                        <h4 style={{color:"white"}}>This is test Answer</h4>
                     </div>
                 </div>
             </div>

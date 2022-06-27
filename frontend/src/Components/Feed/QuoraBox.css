@@ -4,8 +4,9 @@
     padding: 10px;
     border:1px solid lightgray;
     border-radius: 10px;
-    background-color: white;
+    background-color: #293241;
     cursor: pointer;
+    color: white;
     max-width: 700px;
 }
 
@@ -24,7 +25,7 @@
 }
 
 .quoraBox__quora > h5{
-    color: rgb(129,129,129);
+    color: white;
     font-weight: 500;
     font-size: large;
     margin-left: 10px;
