@@ -11,12 +11,12 @@ app.use(bodyParser.json({limit:"50mb"}));
 app.use(bodyParser.urlencoded({extended:true,limit:"50mb"}));
 connectToMongo();
 // cors
-// app.use((req,res,next)=>{
-//     req.headers("Access-Control-Allow-Origin","*");
-//     req.headers("Access-Control-Allow-Headers","*");
-//     next();
-// });
-// app.use(cors());
+app.use((req,res,next)=>{
+    res.header("Access-Control-Allow-Origin","*");
+    res.header("Access-Control-Allow-Headers","*");
+    next();
+});
+app.use(cors());
 
 //routes
 

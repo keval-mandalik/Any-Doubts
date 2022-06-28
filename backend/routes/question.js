@@ -19,7 +19,7 @@ router.post('/addquestion',async (req,res)=>{
 router.get('/questions', async(req, res, next) => {
     try {
         const question = await Question.find();
-        res.status(200).json(question);
+        res.status(200).json({question, count : question.length});
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Internal Server Error");

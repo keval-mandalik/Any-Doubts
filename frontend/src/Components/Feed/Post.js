@@ -14,8 +14,10 @@ import { Modal } from "react-responsive-modal"
 import "react-responsive-modal/styles.css";
 import { DefaultEditor } from 'react-simple-wysiwyg';
 
-const Post = () => {
+const Post = (props) => {
 
+    const question = props.question;
+    const d = new Date(question.createdAt);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [html, setHtml] = React.useState('my <b>HTML</b>');
     function onChange(e) {
@@ -26,12 +28,12 @@ const Post = () => {
         <div className='post'>
             <div className='post__info'>
                 <Avatar />
-                <h4>User Name</h4>
-                <small>1 hours ago</small>
+                <h4>{question.PostedBy}</h4>
+                <small>{d.toDateString()}</small>
             </div>
             <div className='post__body'>
                 <div className="post__question">
-                    <p>Here question will be apear</p>
+                    <p>{question.question}</p>
                     <button onClick={() => setIsModalOpen(true)} className='post__btnAnswer'>Answer</button>
                     <Modal
                         open={isModalOpen}
