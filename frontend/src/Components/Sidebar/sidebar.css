@@ -6,6 +6,8 @@
   .sidebarOptions {
     display: flex;
     flex-direction: column !important;
+    position : sticky;
+    top: 7em;
   }
 
   .sidebarOption {

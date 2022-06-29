@@ -5,18 +5,21 @@
     flex-direction: column;
     border: 1px solid lightgray;
     border-radius: 5px;
-    background-color: #293241;
     height: fit-content;
+    position : sticky;
+    top: 7em;
 }
 
 .Widget__Header{
     border-bottom: 1px solid lightgray;
+    background-color: #293241;
 }
 
 .Widget__Header > h6{
     color: white;
     text-align: center;
     padding: 10px 5px;
+    font-size: 1.3em;
 }
 
 @media only screen and (max-width: 550px)

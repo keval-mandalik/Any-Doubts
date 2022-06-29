@@ -10,6 +10,8 @@ function widget() {
       </div>
       <div className='Widget__Contents'>
         <WidgetContent />
+        <WidgetContent />
+        <WidgetContent />
       </div>
     </div>
   )

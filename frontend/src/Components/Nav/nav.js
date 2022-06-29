@@ -16,10 +16,35 @@ function Nav() {
 
     // useEffect(()=>{console.log(question)},[question])
 
+    const addQuestion = async (q) => {
+        
+        const res = await fetch( "http://localhost:3001/api/question/addquestion" , {
+          method : 'POST',
+          mode : 'no-cors',
+          headers : {
+            'Content-Type' : 'application/json'
+          },
+          body:{
+            question : q,
+            PostedBy : "keval@gmail.com",
+            Upvotes: 0
+          }
+        })
+  
+        const dataFromResponse = await res.json();
+  
+        // console.log(dataFromResponse);
+        if(dataFromResponse)
+          console.log("done")
+        else
+          console.log("something went wrong")
+    }
+
     const submitHandler = (e) => {
         // e.preventDefault();
         console.log("submitted")
         const values = {question, inputUrl};
+        addQuestion(question);
     }
 
     return (

@@ -1,6 +1,7 @@
 .Widget__Contents{
     display: flex;
     cursor: pointer;
+    flex-direction: column;
 }
 
 .Widget__Content{
@@ -8,6 +9,8 @@
     display: flex;
     padding: 5px;
     border: 1px solid lightgray;
+    background-color: #293241;
+    border-radius: 2px;
 }
 
 .Widget__Content >img{
