@@ -17,27 +17,40 @@ function Nav() {
     // useEffect(()=>{console.log(question)},[question])
 
     const addQuestion = async (q) => {
-        
-        const res = await fetch( "http://localhost:3001/api/question/addquestion" , {
-          method : 'POST',
-          mode : 'no-cors',
-          headers : {
-            'Content-Type' : 'application/json'
-          },
-          body:{
-            question : q,
-            PostedBy : "keval@gmail.com",
-            Upvotes: 0
-          }
-        })
+        console.log(q)
+        const response = await fetch("http://localhost:3001/api/question/addquestion", {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',          
+            },
+            body: JSON.stringify({
+                question:q,
+                PostedBy:"om@gmail.com",
+                Upvotes:10
+            })
+          });
+        // const res = await response.json();
+        console.log(response);
+        // const res = await fetch( "http://localhost:3001/api/question/addquestion" , {
+        //   method : 'POST',
+        //   mode : 'no-cors',
+        //   headers : {
+        //     'Content-Type' : 'application/json'
+        //   },
+        //   body:JSON.stringify({
+        //     question : "New Question",
+        //     PostedBy : "keval@gmail.com",
+        //     Upvotes: 11
+        //   })
+        // })
   
-        const dataFromResponse = await res.json();
+        // const dataFromResponse = await res.json();
   
-        // console.log(dataFromResponse);
-        if(dataFromResponse)
-          console.log("done")
-        else
-          console.log("something went wrong")
+        // // console.log(dataFromResponse);
+        // if(dataFromResponse)
+        //   console.log("done")
+        // else
+        //   console.log("something went wrong")
     }
 
     const submitHandler = (e) => {

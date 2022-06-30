@@ -2,15 +2,17 @@ const express = require('express');
 const router = express.Router();
 const Question = require('../models/question');
 
+
 //create new question;
-router.post('/addquestion',async (req,res)=>{
+router.post('/addquestion',async (req,res,next)=>{
     try {
         const { question, PostedBy, Upvotes } = req.body;
         const saveQuestion = await Question.create(req.body);
         res.status(200).json(saveQuestion)
 } catch (error) {
         console.error(error.message);
-        res.status(500).send("Internal Server Error")
+        // res.status(500).send(error.message);
+        next();
 }
     // res.status(200).json({question:"thuis is question",PostedBy:"kevalgmail.com",Upvotes:10})
 })
