@@ -22,6 +22,7 @@ app.use(cors());
 
 app.use('/api/question',require('./routes/question'));
 app.use('/api/answer',require('./routes/answer'));
+app.use('/api/auth',require('./routes/auth'));
 
 // // To get answer of the specific question with id
 // app.get('/api/answers/:id', (req,res,next)=>{
