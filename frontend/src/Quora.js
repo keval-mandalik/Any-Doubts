@@ -7,16 +7,16 @@ import "./Quora.css"
 
 function Quora() {
   return (
-    <div className='quora'>
-        <Nav/>
+      <div className='quora'>
+        <Nav />
         <div className='quora__contents'>
-            <div className='quora__content'>
-                <Sidebar/>
-                <MainFeed/>
-                <Widget />
-            </div>
+          <div className='quora__content'>
+            <Sidebar />
+            <MainFeed />
+            <Widget />
+          </div>
         </div>
-    </div>
+      </div>
   )
 }
 

@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./Nav.css"
 import logo from "../../../src/images/logo.png"
 import Modal from "react-responsive-modal";
@@ -6,6 +6,7 @@ import "react-responsive-modal/styles.css";
 import CloseIcon from "@material-ui/icons/Close"
 import { Avatar, Input } from '@material-ui/core';
 import { ExpandMore, PeopleAltOutlined } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 
 function Nav() {
 
@@ -21,14 +22,14 @@ function Nav() {
         const response = await fetch("http://localhost:3001/api/question/addquestion", {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json',          
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                question:q,
-                PostedBy:"om@gmail.com",
-                Upvotes:10
+                question: q,
+                PostedBy: "om@gmail.com",
+                Upvotes: 10
             })
-          });
+        });
         // const res = await response.json();
         console.log(response);
         // const res = await fetch( "http://localhost:3001/api/question/addquestion" , {
@@ -43,9 +44,9 @@ function Nav() {
         //     Upvotes: 11
         //   })
         // })
-  
+
         // const dataFromResponse = await res.json();
-  
+
         // // console.log(dataFromResponse);
         // if(dataFromResponse)
         //   console.log("done")
@@ -55,8 +56,10 @@ function Nav() {
 
     const submitHandler = (e) => {
         // e.preventDefault();
+
         console.log("submitted")
-        const values = {question, inputUrl};
+        setIsModalOpen(false)
+        const values = { question, inputUrl };
         addQuestion(question);
     }
 
@@ -65,10 +68,10 @@ function Nav() {
             <div className="container-fluid">
 
                 <nav className="navbar navbar-expand-md navbar-light fixed-top">
-                    <a href="#" className="navbar-brand me-5 ms-2">
+                    <Link to="/" className="navbar-brand me-5 ms-2">
                         <img src={logo}
-                            alt="Logo" style={{ width: "80px", height: "60px" }} />
-                    </a>
+                            alt="Logo" style={{ width: "80px", height: "60px",     filter: "invert(1)" }} />
+                    </Link>
 
                     <button className="navbar-toggler custom-toggler" type="button" data-bs-target="#navbar"
                         data-bs-toggle="collapse">
@@ -78,25 +81,26 @@ function Nav() {
                     <div className="collapse navbar-collapse" id="navbar">
                         <ul className="navbar-nav me-auto">
                             <li className="nav-item mx-3">
-                                <a className="nav-link" href="#"><i className="fa-solid fa-house"></i></a>
+                                <Link className="nav-link" to="/"><i className="fa-solid fa-house"></i></Link>
                             </li>
                             <li className="nav-item mx-3">
-                                <a className="nav-link" href="#"><i className="fa-solid fa-list"></i></a>
+                                <Link className="nav-link" to="/following"><i className="fa-solid fa-list"></i></Link>
                             </li>
                             <li className="nav-item mx-3">
-                                <a className="nav-link" href="#"><i className="fa-solid fa-pen-to-square"></i></a>
+                                <Link className="nav-link" to="/answer"><i className="fa-solid fa-pen-to-square"></i></Link>
                             </li>
                             <li className="nav-item mx-3">
-                                <a className="nav-link" href="#"><i className="fa-solid fa-people-group"></i></a>
+                                <Link className="nav-link" to="/spaces"><i className="fa-solid fa-people-group"></i></Link>
                             </li>
                             <li className="nav-item mx-3">
-                                <a className="nav-link" href="#"><i className="fa-solid fa-bell"></i></a>
+                                <Link className="nav-link" to="/notifications"><i className="fa-solid fa-bell"></i></Link>
                             </li>
                         </ul>
+
                         <form action="#" className="d-flex" >
                             <input className="form-control mx-3" type="text" placeholder="Search" />
-                            <a href="#"><img className="mx-3" src="https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png"
-                                alt="profile" style={{ width: "40px", height: " 40px", borderRadius: "20px" }} /></a>
+                            <Link to="/login"><img className="mx-3" src="https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png"
+                                alt="profile" style={{ width: "40px", height: " 40px", borderRadius: "20px" }} /></Link>
                             <button className="btn qbutton" type="button" onClick={() => setIsModalOpen(true)}><a href="#">Add Question</a></button>
 
                             <Modal
@@ -128,23 +132,23 @@ function Nav() {
                                 </div>
 
                                 <div className='modal__field'>
-                                    <Input type='text' placeholder='Start your question with "What","How","Why", etc.' value={question} onChange={(e)=>setQuestion(e.target.value)}/>
+                                    <Input type='text' placeholder='Start your question with "What","How","Why", etc.' value={question} onChange={(e) => setQuestion(e.target.value)} />
                                     <div style={{
                                         display: "flex",
                                         flexDirection: "column"
                                     }}>
                                         <input type="text"
-                                        value= {inputUrl}
-                                        onChange={(e) => setInputUrl(e.target.value)}
-                                        style={{
-                                            margin:"10px 0",
-                                            border: "1px solid lightgray",
-                                            padding: "10px",
-                                            outline: "2px solid black"
-                                        }} 
-                                        placeholder="Optional: include a lnk that gives a context " />
+                                            value={inputUrl}
+                                            onChange={(e) => setInputUrl(e.target.value)}
+                                            style={{
+                                                margin: "10px 0",
+                                                border: "1px solid lightgray",
+                                                padding: "10px",
+                                                outline: "2px solid black"
+                                            }}
+                                            placeholder="Optional: include a lnk that gives a context " />
                                         {
-                                            inputUrl !==""&& <img style={{
+                                            inputUrl !== "" && <img style={{
                                                 height: "40vh",
                                                 objectFit: "contain"
                                             }} src={inputUrl} alt="Question Image" />
@@ -158,7 +162,7 @@ function Nav() {
                                         Cancel
                                     </button>
 
-                                    <button type='submit' onClick={(e)=>submitHandler()} className='add'>
+                                    <button type='submit' onClick={(e) => submitHandler()} className='add'>
                                         Add Question
                                     </button>
                                 </div>
@@ -168,6 +172,7 @@ function Nav() {
 
                     </div>
                 </nav>
+
 
                 {/* <div className="ask d-flex m-3" style={{justifyContent:"left"}}>
                     <div className="profile">
@@ -182,8 +187,8 @@ function Nav() {
                         </form>
                     </div>
                 </div> */}
-            </div>
 
+            </div>
         </>
     );
 }

@@ -1,0 +1,21 @@
+.discover{
+    display: flex;
+    flex: 0.5;
+    flex-direction: column;
+    background-color: whitesmoke;
+    height: auto;
+    padding: 20px;
+}
+
+.discover-head p{
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(58, 58, 58);
+}
+
+.discover-body-head p{
+    color: rgb(85, 84, 84);
+    font-weight: 500;
+    padding-left: 30px;
+}
+
