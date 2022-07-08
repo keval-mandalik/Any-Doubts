@@ -11,7 +11,7 @@ router.post('/addquestion',async (req,res,next)=>{
         res.status(200).json(saveQuestion)
 } catch (error) {
         console.error(error.message);
-        // res.status(500).send(error.message);
+        res.status(500).send(error.message);
         next();
 }
     // res.status(200).json({question:"thuis is question",PostedBy:"kevalgmail.com",Upvotes:10})
