@@ -82,6 +82,7 @@ const Post = (props) => {
                 <ChatBubbleOutlined />
                 <div className='post__footerLeft'>
                     <ShareOutlined />
+                    
                     <MoreHorizOutlined />
                 </div>
             </div>
