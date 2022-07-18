@@ -8,8 +8,9 @@ import "./Signup.css";
 import Nav from "../Nav/Nav"
 import Cookies from "js-cookie"
 import botImg from "../../images/profile-pic.jpg"
+import {useNavigate} from 'react-router-dom'
 function Signup() {
-
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState("");
@@ -30,10 +31,10 @@ function Signup() {
         // const files = e.target.files;
         const data = new FormData();
         data.append('file', picture);
-        data.append('upload_preset', 'rajvachhani7447');
+        data.append('upload_preset', 'anyDoubts');
         try {
             setUploadingImg(true);
-            let res = await fetch("https://api.cloudinary.com/v1_1/rajvachhani7447/image/upload", {
+            let res = await fetch("https://api.cloudinary.com/v1_1/kevumandalik/image/upload", {
                 method: 'POST',
                 body: data
             });
@@ -60,10 +61,8 @@ function Signup() {
         console.log(name);
         if (!picture) return alert("Please upload your profile picture");
         const url = await uploadImage(picture);
-        // console.log(uploadUrl);
         console.log(url);
-        alert("Signed Up Successfully!!")
-        axios.post('http://localhost:3001/api/auth/createuser', {
+        axios.post('http://localhost:3001/api/auth/register', {
             email: email,
             name: name,
             password: password,
@@ -72,6 +71,7 @@ function Signup() {
             .then((res) => {
                 console.log(res.data.authtoken);
                 Cookies.set('user', res.data.authtoken);
+                navigate("/login");
             }, (error) => {
                 console.log(error);
             });

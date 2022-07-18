@@ -2,92 +2,40 @@ import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Row, Col, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+import Cookies from "js-cookie"
+import axios from "axios"
 import "./Login.css";
 import Nav from "../Nav/Nav"
-
-import { useNavigate } from 'react-router-dom';
 // Components
 // import Button from './Button/Button';
 // Styles
-import { Wrapper } from './Login.styles';
-// Context
-import { Context } from './Context';
+// import { Wrapper } from './Login.styles';
+// // Context
+// import { Context } from './Context';
 
 
 export default function Login() {
-
+  const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   function handleLogin(e) {
     e.preventDefault();
-
-    //Login Logic
+    axios.post('http://localhost:3001/api/auth/login', {
+      email: email,
+      password: password
+  })
+      .then((res) => {
+          console.log(res.data.authtoken);
+          Cookies.set('user', res.data.authtoken);
+          navigate("/");
+      }, (error) => {
+          console.log(error);
+      });
   }
 
-
-  //     const [username, setUsername] = useState('');
-  //   const [password, setPassword] = useState('');
-  //   const [error, setError] = useState(false);
-
-  //   const [_user, setUser] = useContext(Context);
-  //   const navigate = useNavigate();
-
-  //   const handleSubmit = async () => {
-  //     setError(false);
-  //     try {
-  //       // Authenticate User here if true then setUser()
-  //       navigate('/');
-  //     } catch (error) {
-  //       setError(true);
-  //     }
-  //   };
-
-  //   const handleInput = e => {
-  //     const name = e.currentTarget.name;
-  //     const value = e.currentTarget.value;
-
-  //     if (name === 'username') setUsername(value);
-  //     if (name === 'password') setPassword(value);
-  //   };
-
-  let username = "om";
-  // let password = "abc";
-  let handleInput = () => { }
-  let error = false;
-
   return (
-    //     <Wrapper>
-    //   <label>Enter your information:</label>
-    //   <div>
-    //  <label>username</label>
-    //   <input 
-    //     autocomplete="off"
-    //     type='text'
-    //     value={username}
-    //     name='username'
-    //     onChange={handleInput}
-    //     required
-    //   />
-
-    //   </div>
-    //   <div>
-    //       <label>password</label>
-    //   <input
-    //     type='password'
-    //     value={password}
-    //     name='password'
-    //     onChange={handleInput}
-    //     required
-    //   />
-
-    //   </div>
-    //   {error && <div className='error'>Check your username or password!</div>}
-    //   {/* <Button text='Login' callback={handleSubmit} /> */}
-    //   {/* Button bnavanu baki hji */}
-
-    // </Wrapper>
     <Container>
       <Nav />
       <Row>
