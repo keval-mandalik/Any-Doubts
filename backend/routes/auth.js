@@ -14,6 +14,7 @@ router.post('/createuser',
     body('email').isEmail(),
     body('name').isLength({ min: 2 }),
     body('password').isLength({ min: 5 }),
+    body("picture").isLength({min:1})
 ],
 async (req,res)=>{
     let success = false;
@@ -41,6 +42,7 @@ async (req,res)=>{
         name: req.body.name,
         password: secPass,
         email: req.body.email,
+        picture:req.body.picture
       })
       const data = {
           user:{

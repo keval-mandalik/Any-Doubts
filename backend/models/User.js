@@ -26,6 +26,9 @@ const UserSchema = new Schema({
     answers:{
         type:[String],
         required : false
+    },
+    picture: {
+        type: String,
     }
 })
 const  User = mongoose.model('user',UserSchema);
