@@ -21,7 +21,8 @@ const AnswerSchema = new mongoose.Schema(
       ],
     },
     Upvotes: {
-      type: Number
+      type:Array,
+      default:[]
     },
     createdAt:{
       type:Date,

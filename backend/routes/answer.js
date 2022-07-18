@@ -76,5 +76,22 @@ router.delete('/deleteanswer/:id',async(req,res)=>{
         console.error(error.message);
         res.status(500).send("Internal Server Error");
     }
-})
+});
+
+//upvote answer
+router.put("/:id/upvote",async(req,res)=>{
+    try {
+        const answer = await Answer.findById(req.params.id);
+        if(!answer.Upvotes.includes(req.body.userId)){
+            await answer.updateOne({$push:{Upvotes:req.body.userId}});
+            res.status(200).json("You upvote this post");
+        }else{
+            console.log("upvote in try else")
+            await answer.updateOne({$pull:{Upvotes:req.body.userId}});
+            res.status(200).json("Your upvote removed from this post");
+        }
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
 module.exports = router;

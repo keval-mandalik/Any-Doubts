@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 const JWT_SECRET = 'AnyDoubt$123';
 
 // ROUTE 1 :Create a User using POST:"/api/auth/createuser". No login Required
-router.post('/createuser',
+router.post('/register',
 [
     body('email').isEmail(),
     body('name').isLength({ min: 2 }),
@@ -18,8 +18,6 @@ router.post('/createuser',
 ],
 async (req,res)=>{
     let success = false;
-    // const user = User(req.body)
-    // user.save();
 
     //If there are errors, return bad request and the errors
     const errors = validationResult(req);
@@ -64,41 +62,39 @@ async (req,res)=>{
 
 
 //ROUTE 2 :Authenticate a User using POST:"/api/auth/login". No login Required
-// router.post('/login',[
-//     body('email','Enter Valid Email').isEmail(),
-//     body('password','Password can not be blank').exists()
-// ],async (req,res)=>{
-//     let success = false;
-//     const errors = validationResult(req);
-//     if (!errors.isEmpty()) {
-//       return res.status(400).json({ errors: errors.array() });
-//     }
+router.post('/login',[
+    body('email','Enter Valid Email').isEmail(),
+    body('password','Password can not be blank').exists()
+],async (req,res)=>{
+    let success = false;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
 
-//     const {email,password} = req.body;
-//     try {
-//         let user = await User.findOne({email});
-//         if(!user){
-//             return res.status(400).json({success,error:"Please try to login with correct credentials"})
-//         }
+    const {email,password} = req.body;
+    try {
+        let user = await User.findOne({email});
+        if(!user){
+            return res.status(400).json({success,error:"Please try to login with correct credentials"})
+        }
 
-//         const passwordCompare = await bcrypt.compare(password,user.password);
-//         if(!passwordCompare){
-//             return res.status(400).json({success,error:"Please try to login with correct credentials"})
-//         }
-//         const data = {
-//             user:{
-//                 id:user.id
-//             } 
-//         }
-//         const authtoken = jwt.sign(data,JWT_SECRET);
-//         success=true;
-//         res.json({success,authtoken})
-//     } catch (error) {
-//         console.error(error.message);
-//         res.status(500).send("Internal Server Error") 
-//     }
+        const passwordCompare = await bcrypt.compare(password,user.password);
+        if(!passwordCompare){
+            return res.status(400).json({success,error:"Please try to login with correct credentials"})
+        }
+        const data = {
+            user:user
+        }
+        const authtoken = jwt.sign(data,JWT_SECRET);
+        success=true;
+        res.json({success,authtoken})
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error") 
+    }
    
-// })
+})
 
 //ROUTE 3 :Get loggedin User Details using POST:"/api/auth/getuser". login Required
 // router.post('/getuser',user,async (req,res)=>{
