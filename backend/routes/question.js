@@ -39,7 +39,7 @@ router.get('/questions/:id', async(req,res,next)=>{
     }
 });
 
-//Update your quetion
+//Update your question
 router.put('/editquestion/:id',async(req,res)=>{
     const {question} = req.body;
     try {
@@ -58,7 +58,7 @@ router.put('/editquestion/:id',async(req,res)=>{
     }
 })
 
-//Delete your quetion
+//Delete your question
 router.delete('/deletequestion/:id',async(req,res)=>{
     try {
 

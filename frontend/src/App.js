@@ -27,7 +27,6 @@ function App() {
           <Route path='/following' element={<Following />}></Route>
           <Route path='/answer' element={<Answer />}></Route>
           <Route path='/spaces' element={<Spaces />}></Route>
-          <Route path='/notifications' element={<Notifications />}></Route>
           <Route path='/login' element={<Login />}></Route>   
           <Route path='/signup' element={<Signup />}></Route>                
         </Routes>

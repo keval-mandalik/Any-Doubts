@@ -11,7 +11,7 @@ function Discover() {
 
       <div className='discover-body'>
         <div className='discover-body-head'>
-          <p>Spaces You might like</p> 
+          <p>Spaces You Follow</p> 
         </div>
 
         <Space />

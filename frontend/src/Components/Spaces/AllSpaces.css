@@ -1,0 +1,75 @@
+.spacesHeader{
+    background-color: white;
+    border: 2px solid rgb(218, 217, 217);
+    border-radius: 15px;
+    width: 60rem;
+    padding: 15px 20px;
+    margin-left: 20px;
+}
+
+.spacesHeader p{
+    font-size: 14px;
+    color: gray;
+}
+
+.spacesHeader button{
+    margin-right: 10px;
+    padding: 5px 15px;
+    font-size: 13px;
+    font-weight: 500;
+    outline: none;
+    border: 1px solid rgb(3, 122, 122);
+    color: rgb(5, 126, 126);
+    background-color: white;
+    border-radius: 15px;
+    transition: .5s;
+}
+
+.spacesHeader button:hover{
+    background-color: rgb(210, 247, 247);
+}
+
+.allspaces{
+    padding: 10px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 1010px;
+}
+
+.spaceContainer{
+    width: 200px;
+    height: 250px;
+    background-color: rgb(246, 251, 253);
+    border: 2px solid rgb(228, 227, 227);
+    border-radius: 10px;
+    margin: 10px 10px;
+    transition: .5s;
+    overflow: hidden;
+
+}
+
+.spaceContainer:hover{
+    box-shadow: 1px 1px 5px grey;
+}
+
+.spaceImage img{
+    width: 200px;
+    height: 100px;
+}
+
+hr{
+    margin-bottom: 5px;
+}
+.spaceName{
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    padding: 0px 7px;
+}
+
+.spaceDescription{
+    padding: 5px 15px;
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+    text-align: center;
+}

@@ -92,9 +92,7 @@ function Nav() {
                             <li className="nav-item mx-3">
                                 <Link className="nav-link" to="/spaces"><i className="fa-solid fa-people-group"></i></Link>
                             </li>
-                            <li className="nav-item mx-3">
-                                <Link className="nav-link" to="/notifications"><i className="fa-solid fa-bell"></i></Link>
-                            </li>
+                            
                         </ul>
 
                         <form action="#" className="d-flex" >

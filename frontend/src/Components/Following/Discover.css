@@ -2,7 +2,6 @@
     display: flex;
     flex: 0.5;
     flex-direction: column;
-    background-color: whitesmoke;
     height: auto;
     padding: 20px;
 }
@@ -16,6 +15,6 @@
 .discover-body-head p{
     color: rgb(85, 84, 84);
     font-weight: 500;
-    padding-left: 30px;
+    padding-left: 10px;
 }
 
