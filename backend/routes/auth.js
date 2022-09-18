@@ -49,7 +49,7 @@ async (req,res)=>{
       }
       const authtoken = jwt.sign(data,JWT_SECRET);
       success = true;
-      res.json({success,authtoken})
+      res.json({success,authtoken,user})
     //   res.json(user)
     //   .then(user => res.json(user))
     //   .catch(err=>console.log(err))
@@ -88,7 +88,7 @@ router.post('/login',[
         }
         const authtoken = jwt.sign(data,JWT_SECRET);
         success=true;
-        res.json({success,authtoken})
+        res.json({success,authtoken,user})
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Internal Server Error") 
