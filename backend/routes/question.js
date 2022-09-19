@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Question = require('../models/question');
 
-
 //create new question;
 router.post('/addquestion',async (req,res,next)=>{
     try {
-        const { question, PostedBy, Upvotes } = req.body;
+        const { question, PostedBy, Upvotes, category } = req.body;
         const saveQuestion = await Question.create(req.body);
+        res.status(200).json("You upvote this post");
         res.status(200).json(saveQuestion)
 } catch (error) {
         console.error(error.message);
