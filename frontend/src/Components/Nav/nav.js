@@ -106,7 +106,7 @@ function Nav() {
 
                         <form action="#" className="d-flex" >
                             <input className="form-control mx-3" type="text" placeholder="Search" />
-                            <Link to="/login"><img className="mx-3" src="https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png"
+                            <Link to="/user"><img className="mx-3" src="https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png"
                                 alt="profile" style={{ width: "40px", height: " 40px", borderRadius: "20px" }} /></Link>
                             <button className="btn qbutton" type="button" onClick={() => setIsModalOpen(true)}><a href="#">Add Question</a></button>
 
