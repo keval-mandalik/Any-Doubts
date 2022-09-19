@@ -1,0 +1,23 @@
+.cont {
+    width: 100%;
+    min-width: fit-content;
+}
+
+.userPage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 90px;
+    height: 500px;
+    padding: 0px 50px;
+}
+
+.userProfile {
+    flex: 0.7;
+    background-color: rgb(92, 104, 104);
+}
+
+.userDetails{
+    flex: 0.3;
+    background-color: rgb(37, 95, 76);
+}
