@@ -3,7 +3,8 @@
     flex: 0.5;
     flex-direction: column;
     height: auto;
-    padding: 20px;
+    padding: 20px 0px;
+    box-sizing: border-box;
 }
 
 .discover-head p{

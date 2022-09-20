@@ -12,7 +12,6 @@ function Spaces() {
       <div className='quora__contents'>
         <div className='quora__content'>
           <AllSpaces />
-          <Widget />
         </div>
       </div>
     </div>
