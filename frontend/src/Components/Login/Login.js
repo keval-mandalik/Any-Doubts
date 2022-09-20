@@ -27,8 +27,15 @@ export default function Login() {
       password: password
   })
       .then((res) => {
-          console.log(res.data.authtoken);
-          Cookies.set('user', res.data.authtoken);
+          console.log(res.data.user);
+
+          const object = {
+            auth: res.data.authtoken,
+            email: res.data.user.email,
+            _id: res.data.user._id
+          }
+
+          Cookies.set('user', JSON.stringify(object));
           navigate("/");
       }, (error) => {
           console.log(error);

@@ -6,7 +6,8 @@ import "react-responsive-modal/styles.css";
 import CloseIcon from "@material-ui/icons/Close"
 import { Avatar, Input } from '@material-ui/core';
 import { ExpandMore, PeopleAltOutlined } from '@material-ui/icons';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from "react-router-dom";
+import Cookie from 'js-cookie'
 
 function Nav() {
 
@@ -14,11 +15,19 @@ function Nav() {
     const [inputUrl, setInputUrl] = useState("");
     const Close = <CloseIcon />
     const [question, setQuestion] = useState("");
-
     // useEffect(()=>{console.log(question)},[question])
-
+    const navigate = useNavigate();
     const addQuestion = async (q) => {
-        console.log(q)
+        
+        const cookie = (Cookie?.get('user'));
+        let ParsedCookie;
+        if(cookie != undefined){
+            ParsedCookie = JSON.parse(cookie)
+        }else{
+            navigate("/login")
+        }
+        // console.log(cookie);
+
         const response = await fetch("http://localhost:3001/api/question/addquestion", {
             method: 'POST',
             headers: {
@@ -26,7 +35,7 @@ function Nav() {
             },
             body: JSON.stringify({
                 question: q,
-                PostedBy: "om@gmail.com",
+                PostedBy: ParsedCookie.email,
                 Upvotes: 10
             })
         });
