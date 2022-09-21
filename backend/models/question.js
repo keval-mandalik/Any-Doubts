@@ -21,8 +21,8 @@ const QuestionSchema = new mongoose.Schema(
       type: Number
     },
     answers:{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'Answers'
+      type:Array,
+      default:[]
     },
     createdAt:{
       type:Date,

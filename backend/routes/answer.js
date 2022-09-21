@@ -1,3 +1,4 @@
+const { query } = require('express');
 const express = require('express');
 const router = express.Router();
 const Answer = require('../models/answer');
@@ -10,6 +11,7 @@ router.post('/addanswer/:id',async (req,res)=>{
         const question = await Question.findById(qId);
         if(question){
             const saveAnswer = await Answer.create({...req.body,question:qId});
+            await question.updateOne({$push:{answers:saveAnswer._id}});
             res.status(200).json(saveAnswer)
         }else{
             res.status(400).json({msg:"Bad Request"});
@@ -33,10 +35,24 @@ router.get('/getanswer/:id',async (req,res)=>{
 }
 });
 
+
 //get all answers from database
 router.get('/getanswer',async (req,res)=>{
     try {
         const answer = await Answer.find();
+        if(!answer) {res.status(404).send("No answer found!!!")}
+        res.status(200).json({answer});
+} catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error")
+}
+});
+
+//get all answers of user
+router.post('/useranswer',async (req,res)=>{
+    try {
+        let query = {PostedBy:req.body.email}
+        const answer = await Answer.find(query);
         if(!answer) {res.status(404).send("No answer found!!!")}
         res.status(200).json({answer});
 } catch (error) {

@@ -70,7 +70,15 @@ function Signup() {
         })
             .then((res) => {
                 console.log(res.data.authtoken);
-                Cookies.set('user', res.data.authtoken);
+                const object = {
+                    auth: res.data.authtoken,
+                    email: res.data.user.email,
+                    _id: res.data.user._id,
+                    profile_picture:res.data.user.picture,
+                    name:res.data.user.name
+                  }
+        
+                Cookies.set('user', JSON.stringify(object));
                 navigate("/login");
             }, (error) => {
                 console.log(error);

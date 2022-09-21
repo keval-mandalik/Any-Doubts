@@ -7,7 +7,6 @@ router.post('/addquestion',async (req,res,next)=>{
     try {
         const { question, PostedBy, Upvotes, category } = req.body;
         const saveQuestion = await Question.create(req.body);
-        res.status(200).json("You upvote this post");
         res.status(200).json(saveQuestion)
 } catch (error) {
         console.error(error.message);
@@ -21,6 +20,18 @@ router.post('/addquestion',async (req,res,next)=>{
 router.get('/questions', async(req, res, next) => {
     try {
         const question = await Question.find();
+        res.status(200).json({question, count : question.length});
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+})
+
+//To get user specific question...
+router.post('/userquestion', async(req, res, next) => {
+    try {
+        let query = {PostedBy:req.body.email};
+        const question = await Question.find(query);
         res.status(200).json({question, count : question.length});
     } catch (error) {
         console.error(error.message);

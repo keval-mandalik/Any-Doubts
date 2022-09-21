@@ -32,7 +32,9 @@ export default function Login() {
           const object = {
             auth: res.data.authtoken,
             email: res.data.user.email,
-            _id: res.data.user._id
+            _id: res.data.user._id,
+            profile_picture:res.data.user.picture,
+            name:res.data.user.name
           }
 
           Cookies.set('user', JSON.stringify(object));

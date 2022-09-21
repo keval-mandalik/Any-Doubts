@@ -5,19 +5,30 @@ import "react-responsive-modal/styles.css";
 import CloseIcon from "@material-ui/icons/Close"
 import { Avatar, Input } from '@material-ui/core';
 import { ExpandMore, PeopleAltOutlined } from '@material-ui/icons';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import Cookie from 'js-cookie';
 const QuoraBox = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputUrl, setInputUrl] = useState("");
   const Close = <CloseIcon />
   const [question, setQuestion] = useState("");
-
-  // useEffect(()=>{console.log(question)},[question])
+  const [profilePicture,setProfilePicture] = useState("https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png");
+  const [email,setEmail] = useState("user@gmail.com")
+  const cookie = (Cookie?.get('user'));
+  const navigate = useNavigate();
+    // useEffect(()=>{console.log(question)},[question])
 
   const addQuestion = async (q) => {
     console.log(q)
+
+    let ParsedCookie;
+        if(cookie != undefined){
+          ParsedCookie = JSON.parse(cookie);
+        }else{
+          navigate('/login');
+        }
+
     const response = await fetch("http://localhost:3001/api/question/addquestion", {
       method: 'POST',
       headers: {
@@ -25,8 +36,7 @@ const QuoraBox = () => {
       },
       body: JSON.stringify({
         question: q,
-        PostedBy: "om@gmail.com",
-        Upvotes: 10
+        PostedBy: ParsedCookie.email,
       })
     });
     // const res = await response.json();
@@ -62,10 +72,23 @@ const QuoraBox = () => {
     addQuestion(question);
   }
 
+  useEffect(()=>{
+    let ParsedCookie;
+        if(cookie != undefined){
+          ParsedCookie = JSON.parse(cookie);
+          setProfilePicture(ParsedCookie.profile_picture);
+          setEmail(ParsedCookie.email);
+        }
+  },[])
+
+  useEffect(()=>{
+    console.log(email);
+  },[email])
+
   return (
     <div className='quoraBox'>
       <div className="quoraBox__info">
-        <Avatar />
+        <Avatar src={profilePicture}/>
         <div className="quoraBox__quora">
           <h5>What is Your Question/Link?</h5>
         </div>
@@ -93,8 +116,7 @@ const QuoraBox = () => {
           </div>
 
           <div className='modal__info'>
-            <Avatar className='avatar' />
-
+            <Avatar src={profilePicture}/>
             <div className='modal__scope'>
               <PeopleAltOutlined />
               <p>Public</p>

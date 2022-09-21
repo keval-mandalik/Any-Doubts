@@ -15,11 +15,23 @@ function Nav() {
     const [inputUrl, setInputUrl] = useState("");
     const Close = <CloseIcon />
     const [question, setQuestion] = useState("");
+    const [profilePicture,setProfilePicture] = useState("https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png");
     // useEffect(()=>{console.log(question)},[question])
+    const cookie = (Cookie?.get('user'));
     const navigate = useNavigate();
+
+    useEffect(()=>{
+        let ParsedCookie;
+        if(cookie != undefined){
+            ParsedCookie = JSON.parse(cookie)
+            setProfilePicture(ParsedCookie.profile_picture);
+        }
+    },[])
+
+
     const addQuestion = async (q) => {
         
-        const cookie = (Cookie?.get('user'));
+        
         let ParsedCookie;
         if(cookie != undefined){
             ParsedCookie = JSON.parse(cookie)
@@ -106,7 +118,9 @@ function Nav() {
 
                         <form action="#" className="d-flex" >
                             <input className="form-control mx-3" type="text" placeholder="Search" />
-                            <Link to="/user"><img className="mx-3" src="https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png"
+                            <Link to="/user"><img className="mx-3" 
+                            src={profilePicture}
+                            // src="https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png"
                                 alt="profile" style={{ width: "40px", height: " 40px", borderRadius: "20px" }} /></Link>
                             <button className="btn qbutton" type="button" onClick={() => setIsModalOpen(true)}><a href="#">Add Question</a></button>
 
@@ -129,7 +143,7 @@ function Nav() {
                                 </div>
 
                                 <div className='modal__info'>
-                                    <Avatar className='avatar' />
+                                <Avatar src={profilePicture}/>
 
                                     <div className='modal__scope'>
                                         <PeopleAltOutlined />
