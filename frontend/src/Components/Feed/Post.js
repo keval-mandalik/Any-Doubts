@@ -1,5 +1,5 @@
 import { Avatar } from '@material-ui/core';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Post.css'
 import {
     ArrowUpwardOutlined,
@@ -12,18 +12,34 @@ import {
 import CloseIcon from "@material-ui/icons/Close"
 import { Modal } from "react-responsive-modal"
 import "react-responsive-modal/styles.css";
+import axios from "axios"
+import Cookie from 'js-cookie'
+
 import { DefaultEditor } from 'react-simple-wysiwyg';
 
 const Post = (props) => {
 
     const question = props.question;
+    const user = Cookie?.get('user')
+    // console.log(question, "VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV");
     const d = new Date(question.createdAt);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [html, setHtml] = React.useState('my <b>HTML</b>');
+    const [html, setHtml] = React.useState("");
     function onChange(e) {
         setHtml(e.target.value);
       }
     const Close = <CloseIcon />
+
+      const addAns = () => {
+        axios.post(`http://localhost:3001/api/answer/addanswer/${question._id}`, {
+            answer : html,
+            PostedBy: JSON.parse(user).email
+        }).then((res)=>{
+            console.log(res, "RESPONSESSSSSSS")
+        })
+        setIsModalOpen(false)
+      }
+
     return (
         <div className='post'>
             <div className='post__info'>
@@ -64,7 +80,7 @@ const Post = (props) => {
                                 Cancel
                             </button>
 
-                            <button type='submit' className='add'>
+                            <button type='submit' onClick={addAns} className='add'>
                                 Add Answer
                             </button>
                         </div>

@@ -8,6 +8,7 @@
     cursor: pointer;
     color: white;
     max-width: 2000px;
+    box-shadow: 2px 6px 20px 0px #685555;
 }
 
 .quoraBox__info{

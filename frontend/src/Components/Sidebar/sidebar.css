@@ -20,6 +20,7 @@
     margin: 2px 0;
     border-radius: 10px;
     border: 1px solid #222e50;
+    box-shadow: 2px 6px 20px 0px #685555;
   }
   
   .sidebarOption:hover {
