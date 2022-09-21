@@ -1,14 +1,15 @@
 .space{
     display: flex;
-    margin: 10px;
+    margin: 10px 20px;
     border-radius: 5px;
-    transition: 0.6s;
-    padding: 5px 20px;
-    width:max-content;
+    transition: 0.5s;
+    padding: 10px 20px;
+    width:40vw;
 }
 
 .space:hover{
-    background-color: rgb(233, 233, 233);
+    /* background-color: rgba(231, 231, 231, 0.877); */
+    box-shadow: 1px 1px 5px gray;
 }
 
 .space-image img{
@@ -27,6 +28,7 @@
 .space-head{
     font-size: 16px;
     font-weight: 500;
+    transition: .5s;
 }
 
 .space-subscribers{
@@ -36,4 +38,10 @@
 
 .space-details{
     font-size: 13px;   
+}
+
+hr{
+    margin-left: 20px;
+    width: 85%;
+    background-color: gray;
 }

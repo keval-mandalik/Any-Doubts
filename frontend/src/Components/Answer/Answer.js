@@ -2,7 +2,7 @@ import React from 'react'
 import QuestionSidebar from './QuestionSidebar'
 import Nav from '../Nav/Nav'
 import Sidebar from '../Sidebar/Sidebar'
-import MainFeed from '../Feed/MainFeed'
+import AnswerFeed from './AnswerFeed'
 
 function Answer() {
   return (
@@ -11,7 +11,7 @@ function Answer() {
       <div className='quora__contents'>
         <div className='quora__content'>
           <QuestionSidebar />
-          <MainFeed />
+          <AnswerFeed />
           <Sidebar />
         </div>
       </div>
