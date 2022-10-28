@@ -9,8 +9,11 @@
     display: flex;
     padding: 5px;
     border: 1px solid lightgray;
-    background-color: #293241;
-    border-radius: 2px;
+    /* background-color: #293241; */
+    background: linear-gradient(91deg, #00000070, transparent);
+    border-radius: 8px;
+    gap: 1rem;
+    align-items: center;
 }
 
 .Widget__Content >img{
@@ -18,9 +21,9 @@
     border-radius: 5px;
 }
 
-.Widget__ContentTitle{
-    margin-left: 10px;
-}
+.Widget__ContentTitle > p{
+    margin: 0;
+ }
 
 .Widget__ContentTitle > h6{
     color: white;

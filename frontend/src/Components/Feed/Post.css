@@ -2,8 +2,10 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
-  background-color: #293241;
-  margin-top: 10px;
+  /* background-color: #293241;
+   */
+   background: linear-gradient(0deg, black, transparent);
+   margin-top: 10px;
   border: 1px solid lightgray;
   border-radius: 5px;
   max-width: 2000px;
@@ -19,7 +21,7 @@
 
 .post__info>h4 {
   color:white;
-  margin-left: 10px;
+  margin: 0 !important;
   cursor: pointer;
   font-size: 13px;
 }
@@ -30,7 +32,7 @@
 
 .post__info>small {
   color:white;
-  margin-left: 10px;
+  margin: 0 !important;
 }
 
 .post__body {
@@ -53,13 +55,15 @@
   margin-left: auto;
   cursor: pointer;
   padding: 7px;
-  background-color: white;
+  /* background-color: white; */
+  background: transparent;
   outline: none;
   border: none;
-  color: #293241;
+  color: white;
   font-weight: 400;
   font-size: 14px;
   border-radius: 5px;
+  border: 1px solid;
 }
 
 .post__btnAnswer:hover {
@@ -194,6 +198,10 @@
   background-color: #eee;
   color: #222;
   outline: 2px solid black;
+}
+
+.MuiAvatar-colorDefault{
+  background: transparent !important;
 }
 
 

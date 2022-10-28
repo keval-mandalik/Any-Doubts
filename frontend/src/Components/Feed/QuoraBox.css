@@ -4,11 +4,12 @@
     padding: 15px;
     border:1px solid lightgray;
     border-radius: 10px;
-    background-color: #293241;
+    /* background-color: #293241; */
     cursor: pointer;
     color: white;
     max-width: 2000px;
     box-shadow: 2px 6px 20px 0px #685555;
+    background: linear-gradient(0deg, black, transparent);
 }
 
 .quoraBox__info{
@@ -42,7 +43,9 @@
     outline: none;
     border: none;
     padding: 5px 0px;
-    background-color: #293241;
+    /* background-color: #293241;
+     */
+     background: transparent;
     color: white;
     border-radius: 10px;
     transition: .3s;

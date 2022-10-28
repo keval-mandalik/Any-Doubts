@@ -3,16 +3,11 @@
     flex: 0.2;
     display: flex;
     flex-direction: column;
-    border: 1px solid lightgray;
+    /* border: 1px solid lightgray; */
     border-radius: 5px;
     height: fit-content;
     position : sticky;
     top: 7em;
-}
-
-.Widget__Header{
-    border-bottom: 1px solid lightgray;
-    background-color: #293241;
 }
 
 .Widget__Header > h6{
