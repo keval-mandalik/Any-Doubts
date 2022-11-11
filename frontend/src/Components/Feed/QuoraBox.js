@@ -7,6 +7,9 @@ import { Avatar, Input } from '@material-ui/core';
 import { ExpandMore, PeopleAltOutlined } from '@material-ui/icons';
 import { Link, useNavigate } from 'react-router-dom';
 import Cookie from 'js-cookie';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+
 const QuoraBox = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -85,6 +88,11 @@ const QuoraBox = () => {
     console.log(email);
   },[email])
 
+  const options = [
+    'Frontend', 'Backend', 'DataScience', 'CyberS', 'AIML'
+  ];
+  const defaultOption = options[0];
+
   return (
     <div className='quoraBox'>
       <div className="quoraBox__info">
@@ -117,11 +125,12 @@ const QuoraBox = () => {
 
           <div className='modal__info'>
             <Avatar src={profilePicture}/>
-            <div className='modal__scope'>
+            {/* <div className='modal__scope'>
               <PeopleAltOutlined />
-              <p>Public</p>
+              <Dropdown options={options} onChange={console.log("Dropdown")} value={defaultOption} placeholder="Select an option" />;
               <ExpandMore />
-            </div>
+            </div> */}
+              <Dropdown options={options} onChange={console.log("Dropdown")} value={defaultOption} placeholder="Select an option" />
           </div>
 
           <div className='modal__field'>

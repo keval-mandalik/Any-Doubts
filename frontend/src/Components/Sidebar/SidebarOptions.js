@@ -7,33 +7,38 @@ import { AiOutlineSecurityScan } from "react-icons/ai"
 import { AiFillChrome } from "react-icons/ai"
 
 export default function SidebarOptions(props) {
+    
+    function ChangeCategory(e , category){
+        console.log(category)
+    }
+    
     return (
         <div className='sidebarOptions'>
-            <div className='sidebarOption'>
+            <button className='sidebarOption' onClick={(e) => ChangeCategory(e, "Frontend")}>
                 {/* <img src="https://qphs.fs.quoracdn.net/main-thumb-t-930-100-cbbsbwijdhpyzlpipejvqpiijhhoaday.jpeg" alt="IMAGE" /> */}
                 <AiFillHtml5 />
                 <p>Front-End Doubts</p>
-            </div>
-            <div className='sidebarOption'>
+            </button>
+            <button className='sidebarOption' onClick={(e) => ChangeCategory(e, "Backend")}>
                 {/* <img src="https://qphs.fs.quoracdn.net/main-thumb-t-930-100-cbbsbwijdhpyzlpipejvqpiijhhoaday.jpeg" alt="IMAGE" /> */}
                 <AiOutlineConsoleSql />
                 <p>Backend Doubts</p>
-            </div>
-            <div className='sidebarOption'>
+            </button>
+            <button className='sidebarOption' onClick={(e) => ChangeCategory(e, "DataScience")}>
                 {/* <img src="https://qphs.fs.quoracdn.net/main-thumb-t-930-100-cbbsbwijdhpyzlpipejvqpiijhhoaday.jpeg" alt="IMAGE" /> */}
                 <AiOutlineDatabase />    
                 <p>Data Science Doubts</p>
-            </div>
-            <div className='sidebarOption'>
+            </button>
+            <button className='sidebarOption' onClick={(e) => ChangeCategory(e, "CyberS")}>
                 {/* <img src="https://qphs.fs.quoracdn.net/main-thumb-t-930-100-cbbsbwijdhpyzlpipejvqpiijhhoaday.jpeg" alt="IMAGE" /> */}
                 <AiOutlineSecurityScan />
                 <p>Cyber Security Doubts</p>
-            </div>
-            <div className='sidebarOption'>
+            </button>
+            <button className='sidebarOption' onClick={(e) => ChangeCategory(e, "AIML")}>
                 {/* <img src="https://qphs.fs.quoracdn.net/main-thumb-t-930-100-cbbsbwijdhpyzlpipejvqpiijhhoaday.jpeg" alt="IMAGE" /> */}
                 <AiFillChrome />
                 <p>AI and ML Doubts</p>
-            </div>
+            </button>
         </div>
     )
 }
