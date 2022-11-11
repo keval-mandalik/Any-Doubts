@@ -1,140 +1,71 @@
-import React from 'react';
-import Post from '../Feed/Post';
-import '../Feed/Post.css'
-import {
-  MDBCol,
-  MDBContainer,
-  MDBRow,
-  MDBCard,
-  MDBCardText,
-  MDBCardBody,
-  MDBCardImage,
-  MDBBtn,
-  MDBBreadcrumb,
-  MDBBreadcrumbItem,
-  MDBProgress,
-  MDBProgressBar,
-  MDBIcon,
-  MDBListGroup,
-  MDBListGroupItem
-} from 'mdb-react-ui-kit';
-import Nav from '../Nav/Nav'
+import React, { useEffect, useState } from "react";
+import Nav from "../Nav/Nav"
+import UserProfile from "react-user-profile";
+import Post from "../Feed/Post";
+import QuoraBox from "../Feed/QuoraBox";
 
-export default function ProfilePage() {
-  return (<>
-    <Nav />
-    <section style={{ backgroundColor: '#eee' ,marginTop:"50px"}}>
-      <MDBContainer className="py-5">
+function App() {
 
-        <MDBRow>
-          <MDBCol lg="4">
-            <MDBCard className="mb-4">
-              <MDBCardBody className="text-center">
-                <MDBCardImage
-                  src="https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg?fit=640,427"
-                  alt="avatar"
-                  className="rounded"
-                  style={{ width: '150px', borderRadius: '20px' }}
-                  fluid />
-                <p className="text-muted my-1">Full Stack Developer</p>
-                <p className="text-muted mb-4">Vadodara, Gujarat</p>
-                <div className="d-flex justify-content-center mb-2">
-                  <MDBBtn>Follow</MDBBtn>
-                  <MDBBtn outline className="ms-1">Message</MDBBtn>
-                </div>
-              </MDBCardBody>
-            </MDBCard>
+  const [questions, setQuestions] = useState([]);
 
-            <MDBCard className="mb-4 mb-lg-0">
-              <MDBCardBody className="p-0">
-                <MDBListGroup flush className="rounded-3">
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBIcon fas icon="globe fa-lg text-warning" />
-                    <MDBCardText>johndoe.com</MDBCardText>
-                  </MDBListGroupItem>
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBIcon fab icon="github fa-lg" style={{ color: '#333333' }} />
-                    <MDBCardText>https://github.com/JohnDoe</MDBCardText>
-                  </MDBListGroupItem>
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBIcon fab icon="twitter fa-lg" style={{ color: '#55acee' }} />
-                    <MDBCardText>John7444</MDBCardText>
-                  </MDBListGroupItem>
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBIcon fab icon="instagram fa-lg" style={{ color: '#ac2bac' }} />
-                    <MDBCardText>john-d</MDBCardText>
-                  </MDBListGroupItem>
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBIcon fab icon="facebook fa-lg" style={{ color: '#3b5998' }} />
-                    <MDBCardText>JohnD oe</MDBCardText>
-                  </MDBListGroupItem>
-                </MDBListGroup>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol lg="8">
-            <MDBCard className="mb-4">
-              <MDBCardBody>
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Full Name</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">John Doe</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Email</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">ejohn744@gmail.com</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Phone</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">(097) 234-5678</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Mobile</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">(098) 765-4321</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Address</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Vadodara, Gujarat</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-              </MDBCardBody>
-            </MDBCard>
+  const getAllQuestions = async () => {
+    const res = await fetch("http://localhost:3001/api/question/questions", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
 
-            <MDBRow>
-              <Post question="What is your age?" />
-              <Post question="What is your age?" />
-              <Post question="What is your age?" />
-              <Post question="What is your age?" />
-              <Post question="What is your age?" />
+    const dataFromResponse = await res.json();
 
-            </MDBRow>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-    </section>
+    // console.log(dataFromResponse);
+    if (dataFromResponse)
+      setQuestions(dataFromResponse.question);
+  }
 
-  </>
+  useEffect(() => {
+    getAllQuestions();
+  }, [])
+
+  const mainFeed = questions.map((item) => {
+    return (
+      <>
+        {/* {item.postedBy}
+        {item.question}
+        {item.createdAt}
+        <br/> */}
+        <Post question={item} />
+      </>
+    )
+  })
+
+  const photo =
+    "https://res.cloudinary.com/kevumandalik/image/upload/v1663650162/anyDoubts/a4uf4bzcf1ko0cmvvvrj.jpg";
+  const userName = "Keval Mandalik";
+  const location = "Vadodara, Gujarat";
+
+  return (
+    <div style={{background:"gray"}}>
+    
+      <Nav />
+      <div style={{ margin: "85px auto", width: "90%" }}>
+        <UserProfile
+          photo={photo}
+          userName={userName}
+          location={location}
+          initialLikesCount={121}
+          initialFollowingCount={723}
+          initialFollowersCount={4433}
+        />
+      </div>
+
+      <div style={{width:"90%", margin:"0 auto"}}>
+        <QuoraBox />
+        <div><h3 style={{color:"gray", margin:"20px 0"}}>Your Posts</h3></div>
+        {mainFeed}
+      </div>
+    </div>
   );
 }
+
+export default App;
