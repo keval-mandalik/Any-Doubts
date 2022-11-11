@@ -23,12 +23,19 @@
     outline: none;
     transition: .5s;
     width: 60%;
+
+    border: 2px solid white !important;
+    color: white;
+    border-radius: 0.5rem;
+    box-shadow: -2px 4px 20px 0px #ffffff94;
 }
+
 
 .qbutton a {
     text-decoration: none;
-    color: rgb(34, 46, 80);
+    /* color: rgb(34, 46, 80); */
     font-weight: bold;
+    color: white
 }
 /* .qbutton a:hover{
     color: white;
