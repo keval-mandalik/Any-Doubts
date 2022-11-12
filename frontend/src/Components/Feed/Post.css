@@ -114,13 +114,13 @@
   border-radius: 33px;
 }
 
-.post__footerAction>.MuiSvgIcon-root {
+.post__footerAction>div>.MuiSvgIcon-root {
   color: white;
   margin-right: 40px;
   cursor: pointer;
 }
 
-.post__footerAction>.MuiSvgIcon-root:hover {
+.post__footerAction>div>.MuiSvgIcon-root:hover {
   color: rgb(0, 140, 255);
   margin-right: 40px;
 }
@@ -206,4 +206,12 @@
 
 .post-answer{
   color: white;
+}
+
+.upvote{
+  color: white;
+  
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 2px;
 }

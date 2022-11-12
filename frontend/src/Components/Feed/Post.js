@@ -26,6 +26,7 @@ const Post = (props) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [html, setHtml] = React.useState("");
     const [answers,setAnswers] = useState([]);
+    const [noOfUpvote,setNoOfUpvote] = useState(question?.Upvotes.length);
     function onChange(e) {
         setHtml(e.target.value);
       }
@@ -45,6 +46,14 @@ const Post = (props) => {
         axios.get(`http://localhost:3001/api/answer/getanswer/${question._id}`).then((res)=>{
             setAnswers(res.data.answer)
             console.log(res.data.answer,"ANSWERRRRRRRRRRR")
+        })
+    }
+    const handleUpvote = ()=>{
+        axios.put(`http://localhost:3001/api/question/${question._id}/upvoteque`,{
+            userId:JSON.parse(user)._id
+        }).then((res)=>{
+            setNoOfUpvote(res.data.question.Upvotes.length);
+            console.log(res)
         })
     }
     function createMarkup(html) {
@@ -105,11 +114,14 @@ const Post = (props) => {
             </div>
             <div className='post__footer'>
                 <div className='post__footerAction'>
-                    <ArrowUpwardOutlined />
-                    <ArrowDownwardOutlined />
+                    <div className="upvote">
+                    <ArrowUpwardOutlined onClick={handleUpvote}/> {noOfUpvote}
+
+                    </div>
+                    {/* <ArrowDownwardOutlined /> */}
                 </div>
-                <RepeatOneOutlined />
-                <ChatBubbleOutlined />
+                {/* <RepeatOneOutlined /> */}
+                {/* <ChatBubbleOutlined /> */}
                 <div className='post__footerLeft'>
                     <ShareOutlined />
                     
@@ -121,7 +133,7 @@ const Post = (props) => {
                 fontSize: "12px",
                 fontWeight: "bold",
                 margin: "10px 0px"
-            }}>1 Answer</p>
+            }}>{answers.length} Answer</p>
             <div style={{
                 margin: "5px 0px 0x 0px",
                 padding: "5px 0px 0px 20px",

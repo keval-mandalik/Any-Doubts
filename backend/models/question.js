@@ -18,7 +18,8 @@ const QuestionSchema = new mongoose.Schema(
       ],
     },
     Upvotes: {
-      type: Number
+      type:Array,
+      default:[]
     },
     answers:{
       type:Array,

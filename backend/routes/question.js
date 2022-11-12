@@ -85,4 +85,23 @@ router.delete('/deletequestion/:id',async(req,res)=>{
     }
 })
 
+//upvote question
+router.put("/:id/upvoteque",async(req,res)=>{
+    try {
+        let question = await Question.findById(req.params.id);
+        if(!question.Upvotes.includes(req.body.userId)){
+            await question.updateOne({$push:{Upvotes:req.body.userId}});
+            question = await Question.findById(req.params.id);
+            res.status(200).json({msg:"You upvote this post",question});
+        }else{
+            console.log("upvote in try else")
+            await question.updateOne({$pull:{Upvotes:req.body.userId}});
+            question = await Question.findById(req.params.id);
+            res.status(200).json({msg:"Your upvote removed from this post",question});
+        }
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
+
 module.exports = router;
