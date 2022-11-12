@@ -43,10 +43,13 @@ const Post = (props) => {
 
     const getQuestionSpecificAnswer = ()=>{
         axios.get(`http://localhost:3001/api/answer/getanswer/${question._id}`).then((res)=>{
+            setAnswers(res.data.answer)
             console.log(res.data.answer,"ANSWERRRRRRRRRRR")
         })
     }
-
+    function createMarkup(html) {
+        return { __html: html };
+      }
     useEffect(()=>{
         getQuestionSpecificAnswer();
     },[])
@@ -129,27 +132,37 @@ const Post = (props) => {
                     flexDirection: "column",
                     width: "100%",
                     padding: "10px 5px",
-                    borderTop: "1px solid lightgray"
+                    // borderTop: "1px solid lightgray"
                 }} className="post-answer-container">
-                    <div style={{
-                        display: "flex",
-                        alignItems: "center",
-                        marginBotton: "10px",
-                        fontSize: "12px",
-                        fontWeight: 600,
-                        color: "white"
-                    }} className='post-answered'>
-                        <Avatar />
+                    {answers.length > 0 ? answers.map((item)=>{
+                        return(<>
                         <div style={{
-                            margin: "0px 5px"
-                        }} className='post-info'>
-                            <p style={{ margin: "0px" }}>UserName</p>
-                            <span>20 Min ago</span>
+                            display: "flex",
+                            alignItems: "center",
+                            marginBotton: "10px",
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            color: "white"
+                        }} className='post-answered'>
+                            <Avatar />
+                            <div style={{
+                                margin: "0px 5px"
+                            }} className='post-info'>
+                                <p style={{ margin: "0px" }}>{item.PostedBy}</p>
+                                <span>{new Date(item.createdAt).toDateString()}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div className='post-answer'>
-                        <h4 style={{color:"white"}}>This is test Answer</h4>
-                    </div>
+                        <div className='post-answer'>
+    
+                            {/* <h4 style={{color:"white"}}>This is test Answer</h4> */}
+                            {/* {item.answer} */}
+                            <div dangerouslySetInnerHTML={createMarkup(item.answer)} />
+                        </div>
+                        </>)
+                    }):
+                        <p>not answered yet</p>
+                    }
+                    
                 </div>
             </div>
         </div>

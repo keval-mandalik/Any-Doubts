@@ -1,7 +1,7 @@
 .quora{
     width: 100%;
     min-width: fit-content;
-    background: url("./images/bg.jpg");
+    background: url("./images/bg.jpg")fixed;
     background-repeat: no-repeat;
     background-size: cover;
 }

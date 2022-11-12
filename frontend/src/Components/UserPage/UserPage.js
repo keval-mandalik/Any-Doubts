@@ -2,25 +2,23 @@ import React, { useEffect, useState } from "react";
 import Nav from "../Nav/Nav"
 import UserProfile from "react-user-profile";
 import Post from "../Feed/Post";
+import Cookie from "js-cookie";
 import QuoraBox from "../Feed/QuoraBox";
-
+import axios from 'axios'
+import "./UserPage.css"
 function App() {
 
   const [questions, setQuestions] = useState([]);
-
+  const user = Cookie?.get('user')
   const getAllQuestions = async () => {
-    const res = await fetch("http://localhost:3001/api/question/questions", {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+
+    axios.post(`http://localhost:3001/api/question/userquestion`, { 
+      email: JSON.parse(user).email
+    }).then((res)=>{
+      console.log(res, "RESPONSESSSSSSS")
+      if(res.data.question)
+        setQuestions(res.data.question)
     })
-
-    const dataFromResponse = await res.json();
-
-    // console.log(dataFromResponse);
-    if (dataFromResponse)
-      setQuestions(dataFromResponse.question);
   }
 
   useEffect(() => {
@@ -45,7 +43,7 @@ function App() {
   const location = "Vadodara, Gujarat";
 
   return (
-    <div style={{background:"gray"}}>
+    <div className="userProfile">
     
       <Nav />
       <div style={{ margin: "85px auto", width: "90%" }}>
