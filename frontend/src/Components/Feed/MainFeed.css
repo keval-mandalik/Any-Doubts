@@ -2,6 +2,7 @@
     display:flex;
     flex-direction: column;
     flex:0.6;
+    min-height: 84.6vh;
     /* just for designing purpose latter we can remove it */
     margin: 0px 20px;
 }
