@@ -40,6 +40,7 @@ const QuoraBox = () => {
       body: JSON.stringify({
         question: q,
         PostedBy: ParsedCookie.email,
+        category: cat
       })
     });
     // const res = await response.json();
@@ -88,10 +89,17 @@ const QuoraBox = () => {
     console.log(email);
   },[email])
 
+  const [cat, setCategory] = useState('General');
+
   const options = [
-    'Frontend', 'Backend', 'DataScience', 'CyberS', 'AIML'
+    'General','Frontend', 'Backend', 'DataScience', 'CyberS', 'AIML'
   ];
   const defaultOption = options[0];
+
+  const CategoryChange = (e) => {
+    setCategory(e.value);
+    console.log("DropDown Changes")
+  }
 
   return (
     <div className='quoraBox'>
@@ -130,7 +138,7 @@ const QuoraBox = () => {
               <Dropdown options={options} onChange={console.log("Dropdown")} value={defaultOption} placeholder="Select an option" />;
               <ExpandMore />
             </div> */}
-              <Dropdown options={options} onChange={console.log("Dropdown")} value={defaultOption} placeholder="Select an option" />
+              <Dropdown options={options} onChange={(e) => CategoryChange(e)} value={defaultOption} placeholder="Select an option" />
           </div>
 
           <div className='modal__field'>

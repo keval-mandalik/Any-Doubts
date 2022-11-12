@@ -2,9 +2,11 @@ import React, {useState, useEffect} from 'react';
 import QuoraBox from './QuoraBox';
 import Post from './Post';
 import './MainFeed.css';
-const MainFeed = () => {
+const MainFeed = (props) => {
 
   const [questions, setQuestions] = useState([]);
+
+  // console.log(props.category)
 
   const getAllQuestions = async () => {
       const res = await fetch( "http://localhost:3001/api/question/questions" , {
@@ -25,17 +27,31 @@ const MainFeed = () => {
     getAllQuestions();
   }, [])
 
-  const mainFeed = questions.map((item)=>{
-    return(
-      <>
-        {/* {item.postedBy}
-        {item.question}
-        {item.createdAt}
-        <br/> */}
-        <Post question = {item}/>
-      </>
-    )
-  })
+  
+  // if(props.category !== "General"){
+  //   let newQuestions = questions.filter(CategoryQuestionsCheck)
+  //   setQuestions(newQuestions)
+  // }
+  
+  // function CategoryQuestionsCheck(item){
+  //   return item.category === props.category
+  // }
+
+    const mainFeed = questions.map((item)=>{
+      return(
+        <>
+          {/* {item.postedBy}
+          {item.question}
+          {item.createdAt}
+          <br/> */}
+          {/* {item.category} */}
+          <Post question = {item}/>
+        </>
+      )
+    })
+  
+
+  
 
   return (
     <div className='feed'>
