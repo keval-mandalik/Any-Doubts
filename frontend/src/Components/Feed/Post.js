@@ -25,20 +25,31 @@ const Post = (props) => {
     const d = new Date(question.createdAt);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [html, setHtml] = React.useState("");
+    const [answers,setAnswers] = useState([]);
     function onChange(e) {
         setHtml(e.target.value);
       }
     const Close = <CloseIcon />
 
-      const addAns = () => {
-        axios.post(`http://localhost:3001/api/answer/addanswer/${question._id}`, {
-            answer : html,
-            PostedBy: JSON.parse(user).email
-        }).then((res)=>{
-            console.log(res, "RESPONSESSSSSSS")
+    const addAns = () => {
+    axios.post(`http://localhost:3001/api/answer/addanswer/${question._id}`, {
+        answer : html,
+        PostedBy: JSON.parse(user).email
+    }).then((res)=>{
+        console.log(res, "RESPONSESSSSSSS")
+    })
+    setIsModalOpen(false)
+    }
+
+    const getQuestionSpecificAnswer = ()=>{
+        axios.get(`http://localhost:3001/api/answer/getanswer/${question._id}`).then((res)=>{
+            console.log(res.data.answer,"ANSWERRRRRRRRRRR")
         })
-        setIsModalOpen(false)
-      }
+    }
+
+    useEffect(()=>{
+        getQuestionSpecificAnswer();
+    },[])
 
     return (
         <div className='post'>
