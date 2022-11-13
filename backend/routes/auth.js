@@ -96,6 +96,30 @@ router.post('/login',[
    
 })
 
+//forgot password
+router.post("/forgot-password", async (req, res) => {
+    const { email } = req.body; 
+    console.log(email);
+    try {
+    const olduser = await User.findone({ email });
+    if (!olduser) {
+    return res.json({status:"User Not Exists !!"});
+    }
+    const secret = JWT_SECRET + olduser.password;
+    const token =jwt.sign({ email: olduser.email, id: olduser._id }, secret, {
+    expiresIn: "5m",
+    });
+    const link= `http:// localhost:3001/reset-password/${olduser._id}/${token}`;
+    console.log(link);
+    } catch (error) {}
+});
+
+router.get("/reset-password/:id/:token", async (req, res) => {
+    const {id, token } = req.params;
+    console.log(req.params);
+    res.send("Done");
+    });
+
 //ROUTE 3 :Get loggedin User Details using POST:"/api/auth/getuser". login Required
 // router.post('/getuser',user,async (req,res)=>{
 //     try {

@@ -8,6 +8,7 @@ import Spaces from './Components/Spaces/Spaces';
 import Notifications from "./Components/Notifications/Notifications";
 import Login from "./Components/Login/Login"
 import Signup from './Components/Login/Signup';
+import Forgot from './Components/Login/Forgot'
 import UserPage from './Components/UserPage/UserPage';
 // import ReactLoading from 'react-loading';
 
@@ -30,6 +31,7 @@ function App() {
           <Route path='/spaces' element={<Spaces />}></Route>
           <Route path='/login' element={<Login />}></Route>   
           <Route path='/signup' element={<Signup />}></Route>   
+          <Route path='/reset-password' element={<Forgot />}></Route>   
           <Route path='/user' element={<UserPage />}></Route>   
 
         </Routes>
