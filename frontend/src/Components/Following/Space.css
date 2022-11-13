@@ -5,11 +5,13 @@
     transition: 0.5s;
     padding: 10px 20px;
     width:40vw;
+    box-shadow: 1px 1px 2px white;
+
 }
 
 .space:hover{
     /* background-color: rgba(231, 231, 231, 0.877); */
-    box-shadow: 1px 1px 5px gray;
+    box-shadow: 1px 1px 10px white;
 }
 
 .space-image img{
@@ -29,19 +31,21 @@
     font-size: 16px;
     font-weight: 500;
     transition: .5s;
+    color: whitesmoke;
 }
 
 .space-subscribers{
     font-size: 12px;  
-    color: rgb(131, 130, 130); 
+    color: rgb(248, 240, 225); 
 }
 
 .space-details{
-    font-size: 13px;   
+    font-size: 13px; 
+    color: aliceblue;  
 }
 
 hr{
     margin-left: 20px;
     width: 85%;
-    background-color: gray;
+    background-color: white !important;
 }

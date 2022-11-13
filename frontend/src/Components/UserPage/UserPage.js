@@ -12,11 +12,12 @@ function App() {
   const user = Cookie?.get('user')
   const getAllQuestions = async () => {
 
-    axios.post(`http://localhost:3001/api/question/userquestion`, { 
+    axios.post(`http://localhost:3001/api/question/userquestion`, {
       email: JSON.parse(user).email
-    }).then((res)=>{
-      console.log(res, "RESPONSESSSSSSS")
-      if(res.data.question)
+    }).then((res) => {
+      console.log(res, "RESPONSE")
+      console.log(user);
+      if (res.data.question)
         setQuestions(res.data.question)
     })
   }
@@ -24,6 +25,7 @@ function App() {
   useEffect(() => {
     getAllQuestions();
   }, [])
+
 
   const mainFeed = questions.map((item) => {
     return (
@@ -37,29 +39,27 @@ function App() {
     )
   })
 
-  const photo =
-    "https://res.cloudinary.com/kevumandalik/image/upload/v1663650162/anyDoubts/a4uf4bzcf1ko0cmvvvrj.jpg";
-  const userName = "Keval Mandalik";
-  const location = "Vadodara, Gujarat";
+  const photo = JSON.parse(user).profile_picture;
+  const userName = (JSON.parse(user).name).toUpperCase();
+  const designation = "Full Stack Web Developer";
 
   return (
     <div className="userProfile">
-    
+
       <Nav />
       <div style={{ margin: "85px auto", width: "90%" }}>
         <UserProfile
           photo={photo}
           userName={userName}
-          location={location}
+          location={designation}
           initialLikesCount={121}
           initialFollowingCount={723}
           initialFollowersCount={4433}
         />
       </div>
 
-      <div style={{width:"90%", margin:"0 auto"}}>
+      <div style={{ width: "90%", margin: "0 auto" }}>
         <QuoraBox />
-        <div><h3 style={{color:"gray", margin:"20px 0"}}>Your Posts</h3></div>
         {mainFeed}
       </div>
     </div>

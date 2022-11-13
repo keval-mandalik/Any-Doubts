@@ -10,11 +10,10 @@
 .qHeader p{
     font-size: 18px;
     font-weight: bold;
-    color: #222e50;
+    color: white;
 }
 
 hr{
-    margin-top: 0px;
     margin-bottom: 15px;
 }
 
@@ -28,30 +27,24 @@ hr{
   .qSidebarOption {
     display: flex;
     align-items: center;
-    color: white;
+    color: rgb(238, 230, 230);
     padding: 0px 10px;
     cursor: pointer;
-    background-color: #293240;
+    background-color: transparent;
+    background: linear-gradient(91deg, #00000070, transparent);
     margin: 2px 0;
     border-radius: 10px;
-    border: 1px solid #222e50;
+    border: 2px solid black;
     text-align: center;
   }
-  
-  .qSidebarOption:hover {
-    background: #abd5e2;
-    color: #222e50;
-    border-radius: 10px;
-    border: 1px solid #222e50;
-  }
 
+  .qSidebarOption:hover{
+    background: transparent;
+  }
+  
   .qSidebarOption > p {
     color: white;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 14px;
     margin-top: 16px;
-  }
-
-  .qSidebarOption:hover p{
-    color: black;
   }

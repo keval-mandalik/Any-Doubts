@@ -1,11 +1,12 @@
 .navbar {
-    background-color: rgb(23, 30, 48);
-    box-shadow: 1px 1px 5px gray;
+  /* background: linear-gradient(to right,rgb(220, 20, 60),rgb(22, 91, 170)); */
+  background: linear-gradient(to right, #000b0f, #00161d, #0F2027);
+  box-shadow: 1px 1px 5px gray;
 }
 
 .nav-item {
-    color: black;
-    font-size: 17px;
+  color: black;
+  font-size: 17px;
 }
 
 /* img{
@@ -13,117 +14,119 @@
 } */
 
 .nav-link {
-    font-weight: bold;
-    color: black;
+  font-weight: bold;
+  color: rgb(231, 234, 241) !important;
 }
 
 .qbutton {
-    background-color: white;
-    border-radius: 10px;
-    outline: none;
-    transition: .5s;
-    width: 60%;
+  background-color: white;
+  border-radius: 10px;
+  outline: none;
+  transition: .5s;
+  width: 60%;
 
-    border: 2px solid white !important;
-    color: white;
-    border-radius: 0.5rem;
-    box-shadow: -2px 4px 20px 0px #ffffff94;
+  border: 2px solid white !important;
+  color: white;
+  border-radius: 0.5rem;
+  box-shadow: -2px 4px 20px 0px #ffffff94;
 }
 
 
 .qbutton a {
-    text-decoration: none;
-    /* color: rgb(34, 46, 80); */
-    font-weight: bold;
-    color: white
+  text-decoration: none;
+  /* color: rgb(34, 46, 80); */
+  font-weight: bold;
+  transition: .5s;
+  color: white
 }
+
 /* .qbutton a:hover{
     color: white;
 } */
 
-.qbutton:hover > a{
-  color: #0479a7;
+.qbutton:hover>a {
+  color: #02b6fd;
 }
 
 .form-control {
-    transition: .5s;
+  transition: .5s;
 }
 
-@media only screen and (max-width: 550px)
-{
-    .navbar{
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-    }
+@media only screen and (max-width: 550px) {
+  .navbar {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
 }
 
-.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
   color: #c4ebfa !important;
 }
 
 .modal__title {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-    border-bottom: 1px solid rgba(187, 187, 187, 0.5);
-  }
-  
-  .modal__title > h5 {
-    color: gray;
-    font-size: 20px;
-    cursor: pointer;
-    font-weight: 500;
-    margin-right: 30px;
-  }
-  
-  .modal__title > h5:hover {
-    color: #b92b27;
-  }
-  
-  .modal__info {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-  }
-  
-  .modal__scope > p {
-    font-size: medium;
-    color: gray;
-    margin: 2px 5px;
-  }
-  
-  .modal__info > .modal__scope {
-    display: flex;
-    align-items: center;
-    color: rgb(98, 98, 98);
-    padding: 5px 15px;
-    margin-left: 10px;
-    background-color: rgb(230, 230, 230);
-    border-radius: 33px;
-    cursor: pointer;
-  }
-  
-  .modal__field {
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
-    flex: 1;
-  }
-  
-  .modal__field > .modal__fieldLink {
-    color: gray;
-    display: flex;
-    margin-top: 10px;
-    align-items: center;
-  }
-  
-  .modal__field > .modal__fieldLink > input {
-    flex: 1;
-    border: none;
-    outline: none;
-    margin-left: 5px;
-  }
-  
-  .navbar-light .navbar-nav .nav-link{
-    color:white;
-  }
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  border-bottom: 1px solid rgba(187, 187, 187, 0.5);
+}
+
+.modal__title>h5 {
+  color: gray;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-right: 30px;
+}
+
+.modal__title>h5:hover {
+  color: #b92b27;
+}
+
+.modal__info {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.modal__scope>p {
+  font-size: medium;
+  color: gray;
+  margin: 2px 5px;
+}
+
+.modal__info>.modal__scope {
+  display: flex;
+  align-items: center;
+  color: rgb(98, 98, 98);
+  padding: 5px 15px;
+  margin-left: 10px;
+  background-color: rgb(230, 230, 230);
+  border-radius: 33px;
+  cursor: pointer;
+}
+
+.modal__field {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  flex: 1;
+}
+
+.modal__field>.modal__fieldLink {
+  color: gray;
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.modal__field>.modal__fieldLink>input {
+  flex: 1;
+  border: none;
+  outline: none;
+  margin-left: 5px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+}
