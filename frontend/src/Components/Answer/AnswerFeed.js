@@ -5,10 +5,11 @@ import Cookie from 'js-cookie'
 import axios from "axios"
 
 import { useNavigate } from 'react-router-dom';
-const MainFeed = () => {
+const MainFeed = (props) => {
 
   const [questions, setQuestions] = useState([]);
-
+  const [allQuestions,setAllQuestions] = useState([]);
+  const CurrentCategory = props.category
   const cookiedata = Cookie?.get('user')
 
   const navigate = useNavigate();
@@ -17,46 +18,33 @@ const MainFeed = () => {
 
      if(cookiedata === undefined){
       navigate('/login')
-     }  
-
-    //   const res = await fetch( "http://localhost:3001/api/question/userquestion" , {
-    //     method : 'POST',
-    //     headers : {
-    //       'Content-Type' : 'application/json'
-    //     },
-    //     body : {
-    //       'email' : `${JSON.parse(cookiedata).email}`
-    //     }
-    //   })
-
-    axios.post('http://localhost:3001/api/question/userquestion', {
+     }
+     axios.post('http://localhost:3001/api/question/userquestion', {
       email: `${JSON.parse(cookiedata).email}`
-  })
-  .then((res) => {
-    console.log(res, "VVVVVVVVVVVVVVVVVVVVVVV")
-    setQuestions(res.data.question);
-  })
+    })
+    .then((res) => {
+      console.log(res, "VVVVVVVVVVVVVVVVVVVVVVV")
+      setQuestions(res.data.question);
+      setAllQuestions(res.data.question);
+    })
+  }
 
-  
-
-      // const dataFromResponse = await res.json();
-
-      // console.log(dataFromResponse, "vVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV");
-      // if(dataFromResponse)
-      //   setQuestions(dataFromResponse.question);
+  const CategoryQuestionsCheck = (item) => {
+    return item.category === CurrentCategory
   }
 
   useEffect(() => {
     getAllQuestions();
   }, [])
-
+  useEffect(()=>{
+    let copy = allQuestions
+    let newQuestions = copy.filter(CategoryQuestionsCheck);
+    setQuestions(newQuestions)
+  },[props])
+  
   const mainFeed = questions.length > 0 ? questions.map((item)=>{
     return(
       <>
-        {/* {item.postedBy}
-        {item.question}
-        {item.createdAt}
-        <br/> */}
         <Post question = {item}/>
       </>
     )
@@ -64,7 +52,6 @@ const MainFeed = () => {
 
   return (
     <div className='feed'>
-      {/* <Post/> */}
       {mainFeed}
     </div>
   )
