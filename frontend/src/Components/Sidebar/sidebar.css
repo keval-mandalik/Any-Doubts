@@ -25,19 +25,16 @@
   }
   
   .sidebarOption:hover {
-    background: #abd5e2;
-    color: #222e50;
-    border-radius: 10px;
-    border: 1px solid #222e50;
+    background: transparent;
   }
 
-  .sidebarOption:hover p{
+  /* .sidebarOption:hover p{
     color: black;
   }
 
   .sidebarOption:hover svg{
     color: black;
-  }
+  } */
 
   .sidebarOption > img {
     height: 30px;

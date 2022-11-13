@@ -5,8 +5,9 @@ import './MainFeed.css';
 const MainFeed = (props) => {
 
   const [questions, setQuestions] = useState([]);
+  const [allQuestions, setAllQuestions] = useState([]);
 
-  // console.log(props.category)
+  let CurrentCategory = props.category
 
   const getAllQuestions = async () => {
       const res = await fetch( "http://localhost:3001/api/question/questions" , {
@@ -21,21 +22,36 @@ const MainFeed = (props) => {
       // console.log(dataFromResponse);
       if(dataFromResponse)
         setQuestions(dataFromResponse.question);
+        setAllQuestions(dataFromResponse.question);
   }
 
   useEffect(() => {
     getAllQuestions();
   }, [])
 
+  const CategoryQuestionsCheck = (item) => {
+    return item.category === CurrentCategory
+  }
   
-  // if(props.category !== "General"){
-  //   let newQuestions = questions.filter(CategoryQuestionsCheck)
+  // if(CurrentCategory !== "General"){
+  //   let newQuestions
+
+  //   for(let i = 0 ; i < questions?.length; i++){
+  //     if(questions[i]?.category === CurrentCategory){
+  //       newQuestions.push(questions[i])
+  //     }
+  //   }
+
   //   setQuestions(newQuestions)
   // }
+
+  useEffect(()=>{
+    let copy = allQuestions
+    let newQuestions = copy.filter(CategoryQuestionsCheck);
+    setQuestions(newQuestions)
+  },[props])
   
-  // function CategoryQuestionsCheck(item){
-  //   return item.category === props.category
-  // }
+
 
     const mainFeed = questions.map((item)=>{
       return(
@@ -50,13 +66,19 @@ const MainFeed = (props) => {
       )
     })
   
-
-  
+  const styles = {
+    color: "white",
+    textAlign: "center",
+    margin: "10px",
+    fontFamily: "serif",
+    fontSize: "xxx-large"
+  }
 
   return (
     <div className='feed'>
       <QuoraBox/>
       {/* <Post/> */}
+      <h2 style={styles}> {CurrentCategory === "General" ?  "All Questions" : CurrentCategory} </h2>
       {mainFeed}
     </div>
   )

@@ -6,7 +6,8 @@ import "react-responsive-modal/styles.css";
 import CloseIcon from "@material-ui/icons/Close"
 import { Avatar, Input } from '@material-ui/core';
 import { ExpandMore, PeopleAltOutlined } from '@material-ui/icons';
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Dropdown from 'react-dropdown';
 import Cookie from 'js-cookie'
 
 function Nav() {
@@ -15,27 +16,27 @@ function Nav() {
     const [inputUrl, setInputUrl] = useState("");
     const Close = <CloseIcon />
     const [question, setQuestion] = useState("");
-    const [profilePicture,setProfilePicture] = useState("https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png");
+    const [profilePicture, setProfilePicture] = useState("https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png");
     // useEffect(()=>{console.log(question)},[question])
     const cookie = (Cookie?.get('user'));
     const navigate = useNavigate();
 
-    useEffect(()=>{
+    useEffect(() => {
         let ParsedCookie;
-        if(cookie != undefined){
+        if (cookie != undefined) {
             ParsedCookie = JSON.parse(cookie)
             setProfilePicture(ParsedCookie.profile_picture);
         }
-    },[])
+    }, [])
 
 
     const addQuestion = async (q) => {
-        
-        
+
+
         let ParsedCookie;
-        if(cookie != undefined){
+        if (cookie != undefined) {
             ParsedCookie = JSON.parse(cookie)
-        }else{
+        } else {
             navigate("/login")
         }
         // console.log(cookie);
@@ -84,6 +85,19 @@ function Nav() {
         addQuestion(question);
     }
 
+    const [cat, setCategory] = useState('General');
+
+    const options = [
+      'General','Frontend', 'Backend', 'DataScience', 'CyberS', 'AIML'
+    ];
+    const defaultOption = options[0];
+  
+    const CategoryChange = (e) => {
+      setCategory(e.value);
+      console.log("DropDown Changes")
+    }
+  
+
     return (
         <>
             <div className="container-fluid">
@@ -91,7 +105,7 @@ function Nav() {
                 <nav className="navbar navbar-expand-md navbar-light fixed-top">
                     <Link to="/" className="navbar-brand me-5 ms-2">
                         <img src={logo}
-                            alt="Logo" style={{ width: "80px", height: "60px",     filter: "invert(1)" }} />
+                            alt="Logo" style={{ width: "80px", height: "60px", filter: "invert(1)" }} />
                     </Link>
 
                     <button className="navbar-toggler custom-toggler" type="button" data-bs-target="#navbar"
@@ -113,14 +127,14 @@ function Nav() {
                             <li className="nav-item mx-3">
                                 <Link className="nav-link" to="/spaces"><i className="fa-solid fa-people-group"></i></Link>
                             </li>
-                            
+
                         </ul>
 
                         <form action="#" className="d-flex" >
                             <input className="form-control mx-3" type="text" placeholder="Search" />
-                            <Link to="/user"><img className="mx-3" 
-                            src={profilePicture}
-                            // src="https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png"
+                            <Link to="/user"><img className="mx-3"
+                                src={profilePicture}
+                                // src="https://www.pngfind.com/pngs/m/34-349693_circled-user-icon-transparent-background-username-icon-hd.png"
                                 alt="profile" style={{ width: "40px", height: " 40px", borderRadius: "20px" }} /></Link>
                             <button className="btn qbutton" type="button" onClick={() => setIsModalOpen(true)}><a href="#">Add Question</a></button>
 
@@ -143,13 +157,15 @@ function Nav() {
                                 </div>
 
                                 <div className='modal__info'>
-                                <Avatar src={profilePicture}/>
+                                    <Avatar src={profilePicture} />
 
-                                    <div className='modal__scope'>
+                                    {/* <div className='modal__scope'>
                                         <PeopleAltOutlined />
                                         <p>Public</p>
                                         <ExpandMore />
-                                    </div>
+                                    </div> */}
+                                    <Dropdown options={options} onChange={(e) => CategoryChange(e)} value={defaultOption} placeholder="Select an option" />
+
                                 </div>
 
                                 <div className='modal__field'>

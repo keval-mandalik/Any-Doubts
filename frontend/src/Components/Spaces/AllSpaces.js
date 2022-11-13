@@ -5,7 +5,7 @@ function AllSpaces() {
     return (
         <div className='cont'>
             <div className="spacesHeader">
-                <h5>Welcome to Spaces !!</h5>
+                <h5 style={{color:"white"}}>Welcome to Spaces !!</h5>
                 <p>Follow Spaces to explore your interest on AnyDoubts</p>
 
                 <button> Create a Space </button>
@@ -32,7 +32,7 @@ function AllSpaces() {
                         <img src="https://download.logo.wine/logo/Python_(programming_language)/Python_(programming_language)-Logo.wine.png" alt="" />
                     </div>
 
-                    <hr />
+                    
                     <div className="spaceDetail">
                         <div className="spaceName">
                             Python Coding
@@ -50,7 +50,7 @@ function AllSpaces() {
                         <img src="https://www.pewresearch.org/internet/wp-content/uploads/sites/9/2017/02/PI_2017.02.08_Algorithms_featured.png" alt="" />
                     </div>
 
-                    <hr />
+                    
                     <div className="spaceDetail">
                         <div className="spaceName">
                             Algorithms for Beginners
@@ -68,7 +68,7 @@ function AllSpaces() {
                         <img src="https://download.logo.wine/logo/Python_(programming_language)/Python_(programming_language)-Logo.wine.png" alt="" />
                     </div>
 
-                    <hr />
+                    
                     <div className="spaceDetail">
                         <div className="spaceName">
                             Python Coding
@@ -86,7 +86,7 @@ function AllSpaces() {
                         <img src="https://www.pewresearch.org/internet/wp-content/uploads/sites/9/2017/02/PI_2017.02.08_Algorithms_featured.png" alt="" />
                     </div>
 
-                    <hr />
+                    
                     <div className="spaceDetail">
                         <div className="spaceName">
                             Algorithms for Beginners
@@ -104,7 +104,7 @@ function AllSpaces() {
                         <img src="https://download.logo.wine/logo/Python_(programming_language)/Python_(programming_language)-Logo.wine.png" alt="" />
                     </div>
 
-                    <hr />
+                    
                     <div className="spaceDetail">
                         <div className="spaceName">
                             Python Coding
@@ -121,7 +121,7 @@ function AllSpaces() {
                         <img src="https://www.pewresearch.org/internet/wp-content/uploads/sites/9/2017/02/PI_2017.02.08_Algorithms_featured.png" alt="" />
                     </div>
 
-                    <hr />
+                    
                     <div className="spaceDetail">
                         <div className="spaceName">
                             Algorithms for Beginners
@@ -139,44 +139,7 @@ function AllSpaces() {
                         <img src="https://download.logo.wine/logo/Python_(programming_language)/Python_(programming_language)-Logo.wine.png" alt="" />
                     </div>
 
-                    <hr />
-                    <div className="spaceDetail">
-                        <div className="spaceName">
-                            Python Coding
-                        </div>
-
-                        <div className="spaceDescription">
-                            Learn Python Tips and Tricks and Share your knowledge with us to help the society.
-                        </div>
-                    </div>
-
-                </div>
-
-                <div className="spaceContainer">
-                    <div className="spaceImage">
-                        <img src="https://www.pewresearch.org/internet/wp-content/uploads/sites/9/2017/02/PI_2017.02.08_Algorithms_featured.png" alt="" />
-                    </div>
-
-                    <hr />
-                    <div className="spaceDetail">
-                        <div className="spaceName">
-                            Algorithms for Beginners
-                        </div>
-
-                        <div className="spaceDescription">
-                            Learn Python Tips and Tricks and Share your knowledge with us to help the society.
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div className="spaceContainer">
-                    <div className="spaceImage">
-                        <img src="https://download.logo.wine/logo/Python_(programming_language)/Python_(programming_language)-Logo.wine.png" alt="" />
-                    </div>
-
-                    <hr />
+                    
                     <div className="spaceDetail">
                         <div className="spaceName">
                             Python Coding
@@ -194,7 +157,7 @@ function AllSpaces() {
                         <img src="https://www.pewresearch.org/internet/wp-content/uploads/sites/9/2017/02/PI_2017.02.08_Algorithms_featured.png" alt="" />
                     </div>
 
-                    <hr />
+                    
                     <div className="spaceDetail">
                         <div className="spaceName">
                             Algorithms for Beginners
@@ -207,12 +170,13 @@ function AllSpaces() {
 
                 </div>
 
+
                 <div className="spaceContainer">
                     <div className="spaceImage">
                         <img src="https://download.logo.wine/logo/Python_(programming_language)/Python_(programming_language)-Logo.wine.png" alt="" />
                     </div>
 
-                    <hr />
+                    
                     <div className="spaceDetail">
                         <div className="spaceName">
                             Python Coding
@@ -230,7 +194,7 @@ function AllSpaces() {
                         <img src="https://www.pewresearch.org/internet/wp-content/uploads/sites/9/2017/02/PI_2017.02.08_Algorithms_featured.png" alt="" />
                     </div>
 
-                    <hr />
+                    
                     <div className="spaceDetail">
                         <div className="spaceName">
                             Algorithms for Beginners
@@ -248,7 +212,7 @@ function AllSpaces() {
                         <img src="https://download.logo.wine/logo/Python_(programming_language)/Python_(programming_language)-Logo.wine.png" alt="" />
                     </div>
 
-                    <hr />
+                    
                     <div className="spaceDetail">
                         <div className="spaceName">
                             Python Coding
@@ -266,7 +230,7 @@ function AllSpaces() {
                         <img src="https://www.pewresearch.org/internet/wp-content/uploads/sites/9/2017/02/PI_2017.02.08_Algorithms_featured.png" alt="" />
                     </div>
 
-                    <hr />
+                    
                     <div className="spaceDetail">
                         <div className="spaceName">
                             Algorithms for Beginners
@@ -284,7 +248,43 @@ function AllSpaces() {
                         <img src="https://download.logo.wine/logo/Python_(programming_language)/Python_(programming_language)-Logo.wine.png" alt="" />
                     </div>
 
-                    <hr />
+                    
+                    <div className="spaceDetail">
+                        <div className="spaceName">
+                            Python Coding
+                        </div>
+
+                        <div className="spaceDescription">
+                            Learn Python Tips and Tricks and Share your knowledge with us to help the society.
+                        </div>
+                    </div>
+
+                </div>
+
+                <div className="spaceContainer">
+                    <div className="spaceImage">
+                        <img src="https://www.pewresearch.org/internet/wp-content/uploads/sites/9/2017/02/PI_2017.02.08_Algorithms_featured.png" alt="" />
+                    </div>
+
+                    
+                    <div className="spaceDetail">
+                        <div className="spaceName">
+                            Algorithms for Beginners
+                        </div>
+
+                        <div className="spaceDescription">
+                            Learn Python Tips and Tricks and Share your knowledge with us to help the society.
+                        </div>
+                    </div>
+
+                </div>
+
+                <div className="spaceContainer">
+                    <div className="spaceImage">
+                        <img src="https://download.logo.wine/logo/Python_(programming_language)/Python_(programming_language)-Logo.wine.png" alt="" />
+                    </div>
+
+                    
                     <div className="spaceDetail">
                         <div className="spaceName">
                             Python Coding

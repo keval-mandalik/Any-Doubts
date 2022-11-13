@@ -60,7 +60,7 @@ const MainFeed = () => {
         <Post question = {item}/>
       </>
     )
-  }): <h3>Try Asking a Question First!</h3>
+  }): <h3 style={{color:"white"}}>Try Asking a Question First!</h3>
 
   return (
     <div className='feed'>

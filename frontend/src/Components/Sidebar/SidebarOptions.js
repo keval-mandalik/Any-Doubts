@@ -5,6 +5,7 @@ import { AiOutlineConsoleSql } from "react-icons/ai"
 import { AiOutlineDatabase } from "react-icons/ai"
 import { AiOutlineSecurityScan } from "react-icons/ai"
 import { AiFillChrome } from "react-icons/ai"
+import { BiReset } from "react-icons/bi";
 
 export default function SidebarOptions(props) {
     
@@ -39,6 +40,11 @@ export default function SidebarOptions(props) {
                 {/* <img src="https://qphs.fs.quoracdn.net/main-thumb-t-930-100-cbbsbwijdhpyzlpipejvqpiijhhoaday.jpeg" alt="IMAGE" /> */}
                 <AiFillChrome />
                 <p>AI and ML Doubts</p>
+            </button>
+            <button className='sidebarOption' onClick={(e) => CatChanger(e, "General")}>
+                {/* <img src="https://qphs.fs.quoracdn.net/main-thumb-t-930-100-cbbsbwijdhpyzlpipejvqpiijhhoaday.jpeg" alt="IMAGE" /> */}
+                <BiReset />
+                <p>Reset</p>
             </button>
         </div>
     )

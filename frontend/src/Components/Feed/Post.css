@@ -21,18 +21,15 @@
 
 .post__info>h4 {
   color:white;
-  margin: 0 !important;
+  margin: 0 10px !important;
   cursor: pointer;
-  font-size: 13px;
-}
-
-.post__info>h4:hover {
-  text-decoration: underline;
+  font-size: 14px;
 }
 
 .post__info>small {
   color:white;
-  margin: 0 !important;
+  font-size: 11px !important;
+  margin-top: 2px !important;
 }
 
 .post__body {
@@ -70,11 +67,6 @@
   color: #222;
   background: lightgray;
 }
-
-.post__question>p:hover {
-  text-decoration: underline;
-}
-
 
 .post__body>.post__answer>p {
   margin-bottom: 10px;

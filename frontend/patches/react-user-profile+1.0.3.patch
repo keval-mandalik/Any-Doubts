@@ -1,0 +1,36 @@
+diff --git a/node_modules/react-user-profile/src/Overview/Statistics.js b/node_modules/react-user-profile/src/Overview/Statistics.js
+index fdad54f..6e78f34 100644
+--- a/node_modules/react-user-profile/src/Overview/Statistics.js
++++ b/node_modules/react-user-profile/src/Overview/Statistics.js
+@@ -37,6 +37,6 @@ export const Value = styled.div`
+ `;
+ 
+ export const Key = styled.div`
+-  font-size: 0.63rem;
++  font-size: 1rem;
+   color: #343e00;
+ `;
+diff --git a/node_modules/react-user-profile/src/Overview/index.jsx b/node_modules/react-user-profile/src/Overview/index.jsx
+index 0136f68..354a2a5 100644
+--- a/node_modules/react-user-profile/src/Overview/index.jsx
++++ b/node_modules/react-user-profile/src/Overview/index.jsx
+@@ -45,10 +45,6 @@ class Overview extends PureComponent {
+ 
+     return (
+       <Wrapper>
+-        <Share>
+-          <ShareButton onClick={this.onShareToggle} />
+-          <ShareWindow visible={shareVisible}>{window.location.href}</ShareWindow>
+-        </Share>
+ 
+         <Information.Wrapper>
+           <Photo src={photo} alt={name} size="big" />
+@@ -83,7 +79,7 @@ class Overview extends PureComponent {
+             <Statistics.Key>Followers</Statistics.Key>
+           </Statistics.Entry>
+ 
+-          <Button onClick={onFollow}>FOLLOW</Button>
++          <Button>Sign Out</Button>
+         </Statistics.Wrapper>
+       </Wrapper>
+     );
