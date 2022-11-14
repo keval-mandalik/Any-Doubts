@@ -19,7 +19,7 @@
 }
 
 .qbutton {
-  background-color: white;
+  /* background-color: white; */
   border-radius: 10px;
   outline: none;
   transition: .5s;

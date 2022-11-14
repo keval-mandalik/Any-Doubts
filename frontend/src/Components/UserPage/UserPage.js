@@ -6,7 +6,17 @@ import Cookie from "js-cookie";
 import QuoraBox from "../Feed/QuoraBox";
 import axios from 'axios'
 import "./UserPage.css"
+import { Navigate, useNavigate } from "react-router-dom";
+
 function App() {
+  const Navigate = useNavigate();
+  useEffect(()=>{
+    if(Cookie.get('user') === undefined){
+      //TODO: Redirect to login 
+      alert('Login')
+      // Navigate('/login')
+    }
+  },[])
 
   const [questions, setQuestions] = useState([]);
   const user = Cookie?.get('user')
