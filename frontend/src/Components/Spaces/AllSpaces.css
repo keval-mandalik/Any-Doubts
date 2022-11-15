@@ -63,16 +63,17 @@
     margin: 10px 15px;
     transition: .5s;
     overflow: hidden;
-
+    
 }
 
 .spaceContainer:hover{
     box-shadow: 1px 2px 10px white;
+    cursor: pointer;
 }
 
 .spaceImage img{
     width: 200px;
-    height: 100px;
+    height: 120px;
     margin-bottom: 10px;
 }
 

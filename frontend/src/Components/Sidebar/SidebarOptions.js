@@ -31,7 +31,7 @@ export default function SidebarOptions(props) {
                 <AiOutlineDatabase />    
                 <p>Data Science Doubts</p>
             </button>
-            <button className='sidebarOption' onClick={(e) => CatChanger(e, "CyberS")}>
+            <button className='sidebarOption' onClick={(e) => CatChanger(e, "CyberSecurity")}>
                 {/* <img src="https://qphs.fs.quoracdn.net/main-thumb-t-930-100-cbbsbwijdhpyzlpipejvqpiijhhoaday.jpeg" alt="IMAGE" /> */}
                 <AiOutlineSecurityScan />
                 <p>Cyber Security Doubts</p>

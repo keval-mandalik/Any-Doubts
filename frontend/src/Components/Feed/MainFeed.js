@@ -30,7 +30,8 @@ const MainFeed = (props) => {
   }, [])
 
   const CategoryQuestionsCheck = (item) => {
-    return item.category === CurrentCategory
+    console.log(item.category,CurrentCategory)
+    return item.category  === CurrentCategory
   }
   
   // if(CurrentCategory !== "General"){
@@ -71,14 +72,13 @@ const MainFeed = (props) => {
     textAlign: "center",
     margin: "10px",
     fontFamily: "serif",
-    fontSize: "xxx-large"
   }
 
   return (
     <div className='feed'>
       <QuoraBox/>
       {/* <Post/> */}
-      <h2 style={styles}> {CurrentCategory === "General" ?  "All Questions" : CurrentCategory} </h2>
+      <h4 style={styles}> {CurrentCategory === "General" ?  "All Questions" : CurrentCategory} </h4>
       {mainFeed}
     </div>
   )

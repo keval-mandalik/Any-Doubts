@@ -69,7 +69,7 @@ export default function Login() {
             </Button>
 
             <div className='py-4'>
-              <p className='text-center'>Don't remember password ? <Link to="/reset-password" style={{ textDecoration: 'none' }}>Forgot Password</Link></p>
+              {/* <p className='text-center'>Don't remember password ? <Link to="/reset-password" style={{ textDecoration: 'none' }}>Forgot Password</Link></p> */}
               <p className='text-center'>Don't have an account ? <Link to="/signup" style={{ textDecoration: 'none' }}>SignUp</Link></p>
             </div>
           </Form>

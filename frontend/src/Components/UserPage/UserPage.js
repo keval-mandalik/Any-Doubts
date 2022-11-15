@@ -10,13 +10,13 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 function App() {
   const Navigate = useNavigate();
-  useEffect(()=>{
-    if(Cookie.get('user') === undefined){
+  useEffect(() => {
+    if (Cookie.get('user') === undefined) {
       //TODO: Redirect to login 
       alert('Login')
       // Navigate('/login')
     }
-  },[])
+  }, [])
 
   const [questions, setQuestions] = useState([]);
   const user = Cookie?.get('user')
@@ -57,15 +57,28 @@ function App() {
     <div className="userProfile">
 
       <Nav />
-      <div style={{ margin: "85px auto", width: "90%" }}>
-        <UserProfile
-          photo={photo}
-          userName={userName}
-          location={designation}
-          initialLikesCount={121}
-          initialFollowingCount={723}
-          initialFollowersCount={4433}
-        />
+      <div className="user-data" style={{ margin: "85px auto", borderRadius: "100px" }}>
+        <div className="header">
+          <img src={photo} alt="my image" class="floatdown" />
+        </div>
+
+        <div className="body">
+          <div className="user-detail">
+            <h3 className="user-name">{userName}</h3>
+            <h6 className="designation">{designation}</h6>
+          </div>
+
+          <button className="sign-out">Sign Out</button>
+
+          <div className="posts">
+            <div className="Post">Posts <p>8</p></div>
+            <div className="Post" style={{marginLeft:"20px"}}>Likes <p>10</p></div>
+            <div className="Post" style={{marginLeft:"20px"}}>Followers <p>50</p></div>
+          </div>
+        </div>
+
+
+
       </div>
 
       <div style={{ width: "90%", margin: "0 auto" }}>

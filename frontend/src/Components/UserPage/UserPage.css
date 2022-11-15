@@ -5,3 +5,77 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.user-data{
+    font-family:'Bahnschrift';
+}
+
+.header {
+
+    position: relative;
+    width: 100%;
+    height: 250px;
+    text-align: right;
+    background: url("https://i.pinimg.com/originals/53/d9/cd/53d9cd303086eae0decfed3d000fc976.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.body {
+    background-color: whitesmoke;
+    position: relative;
+    width: 100%;
+    height: 180px;
+    padding: 20px 220px;
+}
+
+.header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.floatdown {
+    position: absolute;
+    top: 200px;
+    left: 50px;
+    z-index: 3;
+}
+
+.user-detail{
+    color: rgb(24, 24, 24);
+}
+
+.sign-out{
+    border: 3px solid rgb(3, 27, 43);
+    position: relative;
+    top: -60px;
+    right: -180px;
+    outline: none;
+    border-radius: 10px;
+    padding: 3px 10px;
+    float: right;
+    transition: .5s;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(3, 27, 43);}
+
+.sign-out:hover{
+    border: 3px solid rgb(9, 112, 131);
+}
+
+.posts{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.Post{
+    width:fit-content;
+    text-align: center;
+}
+
+.Post p{
+    font-weight: bold;
+    color: black;
+}
