@@ -37,6 +37,7 @@ function App() {
   }, [])
 
 
+
   const mainFeed = questions.map((item) => {
     return (
       <>
@@ -53,6 +54,12 @@ function App() {
   const userName = (JSON.parse(user).name).toUpperCase();
   const designation = "Full Stack Web Developer";
 
+  // const handleLogout = () => {
+  //   Cookie.remove('user')
+  //   // Navigate('/')
+  // }
+
+
   return (
     <div className="userProfile">
 
@@ -68,12 +75,12 @@ function App() {
             <h6 className="designation">{designation}</h6>
           </div>
 
-          <button className="sign-out">Sign Out</button>
+          <button className="sign-out"> <img src="http://cdn.onlinewebfonts.com/svg/img_276638.png" alt="" /> Sign Out</button>
 
           <div className="posts">
-            <div className="Post">Posts <p>8</p></div>
-            <div className="Post" style={{marginLeft:"20px"}}>Likes <p>10</p></div>
-            <div className="Post" style={{marginLeft:"20px"}}>Followers <p>50</p></div>
+            <div className="Post">Posts <p>{questions.length}</p></div>
+            <div className="Post" style={{ marginLeft: "20px" }}>Likes <p>10</p></div>
+            <div className="Post" style={{ marginLeft: "20px" }}>Followers <p>50</p></div>
           </div>
         </div>
 
