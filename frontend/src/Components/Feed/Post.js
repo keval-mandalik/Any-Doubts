@@ -138,7 +138,8 @@ const Post = (props) => {
             <div style={{
                 margin: "5px 0px 0x 0px",
                 padding: "5px 0px 0px 20px",
-                borderTop: "1px solid lightgray"
+                borderTop: "1px solid lightgray",
+                color:"white"
             }} className='post__asnwer'>
                 <div style={{
                     display: "flex",
@@ -162,7 +163,7 @@ const Post = (props) => {
                             <div style={{
                                 margin: "0px 5px"
                             }} className='post-info'>
-                                <p style={{ margin: "0px" }}>{item.PostedBy}</p>
+                                <p style={{ margin: "0px", }}>{item.PostedBy}</p>
                                 <span>{new Date(item.createdAt).toDateString()}</span>
                             </div>
                         </div>
@@ -170,7 +171,7 @@ const Post = (props) => {
     
                             {/* <h4 style={{color:"white"}}>This is test Answer</h4> */}
                             {/* {item.answer} */}
-                            <div dangerouslySetInnerHTML={createMarkup(item.answer)} />
+                            <div style={{color:"white"}} dangerouslySetInnerHTML={createMarkup(item.answer)} />
                         </div>
                         </>)
                     }):
