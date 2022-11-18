@@ -50,6 +50,7 @@ async (req,res)=>{
       const authtoken = jwt.sign(data,JWT_SECRET);
       success = true;
       res.json({success,authtoken,user})
+
     //   res.json(user)
     //   .then(user => res.json(user))
     //   .catch(err=>console.log(err))

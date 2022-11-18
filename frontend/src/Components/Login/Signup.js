@@ -9,6 +9,7 @@ import Nav from "../Nav/Nav"
 import Cookies from "js-cookie"
 import botImg from "../../images/profile-pic.jpg"
 import {useNavigate} from 'react-router-dom'
+import swal from "sweetalert"
 function Signup() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
@@ -79,6 +80,12 @@ function Signup() {
                   }
         
                 Cookies.set('user', JSON.stringify(object));
+                swal({
+                    title: "Start Learning!",
+                    text: "You've logged in Successfully!",
+                    icon: "success",
+                    button: "Start!",
+                  });
                 navigate("/login");
             }, (error) => {
                 console.log(error);
