@@ -8,7 +8,7 @@ import "./Signup.css";
 import Nav from "../Nav/Nav"
 import Cookies from "js-cookie"
 import botImg from "../../images/profile-pic.jpg"
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import swal from "sweetalert"
 function Signup() {
     const navigate = useNavigate();
@@ -75,20 +75,26 @@ function Signup() {
                     auth: res.data.authtoken,
                     email: res.data.user.email,
                     _id: res.data.user._id,
-                    profile_picture:res.data.user.picture,
-                    name:res.data.user.name
-                  }
-        
+                    profile_picture: res.data.user.picture,
+                    name: res.data.user.name
+                }
+
                 Cookies.set('user', JSON.stringify(object));
                 swal({
                     title: "Start Learning!",
-                    text: "You've logged in Successfully!",
+                    text: "You've registered Successfully!",
                     icon: "success",
                     button: "Start!",
-                  });
+                });
                 navigate("/login");
             }, (error) => {
                 console.log(error);
+                swal({
+                    title: "Invalid Credentials",
+                    text: "PLease Enter Valid Info !",
+                    icon: "warning",
+                    button: "Okay!",
+                });
             });
         // axios({
         //     method: "POST",
@@ -113,17 +119,17 @@ function Signup() {
     return (
         <Container>
             <Nav />
-            <Row>
+            <Row style={{marginTop:"85px"}}>
                 <Col md={7} className="d-flex flex-direction-column align-items-center justify-content-center">
                     <Form style={{ width: "80%", maxWidth: 500 }} onSubmit={handleSignup}>
-                    <h1 className='text-center'>Create Account</h1>
-                    <div className='signup-profile-pic__container'>
-                    <img src={imagePreview || botImg} className='signup-profile-pic' alt="profile" />
-                    <label htmlFor="image-upload" className='image-upload-label'>
-                        <i className='fas fa-plus-circle add-picture-icon'></i>
-                    </label>
-                    <input type="file" id="image-upload" hidden accept="image/png, image/jpeg, image/jpg" onChange={validateImg} />
-                    </div>
+                        <h2 className='text-center'>Create Account</h2>
+                        <div className='signup-profile-pic__container'>
+                            <img src={imagePreview || botImg} className='signup-profile-pic' alt="profile" />
+                            <label htmlFor="image-upload" className='image-upload-label'>
+                                <i className='fas fa-plus-circle add-picture-icon'></i>
+                            </label>
+                            <input type="file" id="image-upload" hidden accept="image/png, image/jpeg, image/jpg" onChange={validateImg} />
+                        </div>
                         <Form.Group className="mb-3" controlId="formBasicName">
                             <Form.Label>Name</Form.Label>
                             <Form.Control type="text" placeholder="Your name" name='name' onChange={(e) => setName(e.target.value)} value={name} />
@@ -142,7 +148,7 @@ function Signup() {
                             <Form.Control type="password" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value)} value={password} />
                         </Form.Group>
                         <Button variant="primary" type="submit">
-                        {uploadingImg ? "Signing you up.." : "Signup"}
+                            {uploadingImg ? "Signing you up.." : "Signup"}
                         </Button>
 
                         <div className='py-4'>

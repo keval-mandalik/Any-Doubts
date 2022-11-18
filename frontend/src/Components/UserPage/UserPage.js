@@ -7,6 +7,7 @@ import QuoraBox from "../Feed/QuoraBox";
 import axios from 'axios'
 import "./UserPage.css"
 import { Navigate, useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 function App() {
   const Navigate = useNavigate();
@@ -41,6 +42,12 @@ function App() {
   const handleSignout = ()=>{
     console.log("deleting cookies and logind out")
     Cookie.remove("user")
+    swal({
+      title: "Good Bye!",
+      text: "You've logged out Successfully!",
+      icon: "success",
+      button: "Okay!",
+  });
     Navigate('/login')
   }
 

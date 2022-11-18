@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Row, Col, Container } from "react-bootstrap";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie"
 import axios from "axios"
 import "./Login.css";
 import Nav from "../Nav/Nav"
+import swal from 'sweetalert';
 // Components
 // import Button from './Button/Button';
 // Styles
@@ -25,29 +26,41 @@ export default function Login() {
     axios.post('http://localhost:3001/api/auth/login', {
       email: email,
       password: password
-  })
+    })
       .then((res) => {
-          console.log(res.data.user);
+        console.log(res.data.user);
 
-          const object = {
-            auth: res.data.authtoken,
-            email: res.data.user.email,
-            _id: res.data.user._id,
-            profile_picture:res.data.user.picture,
-            name:res.data.user.name
-          }
+        const object = {
+          auth: res.data.authtoken,
+          email: res.data.user.email,
+          _id: res.data.user._id,
+          profile_picture: res.data.user.picture,
+          name: res.data.user.name
+        }
 
-          Cookies.set('user', JSON.stringify(object));
-          navigate("/");
+        Cookies.set('user', JSON.stringify(object));
+        swal({
+          title: "Well Done!",
+          text: "You've Logged in Successfully!",
+          icon: "success",
+          button: "Start!",
+        });
+        navigate("/");
       }, (error) => {
-          console.log(error);
+        console.log(error);
+        swal({
+          title: "Invalid Credentials",
+          text: "Try again with valid credentials!",
+          icon: "warning",
+          button: "Okay!",
+        });
       });
   }
 
   return (
     <Container>
       <Nav />
-      <Row>
+      <Row style={{marginTop:"80px"}}>
         <Col md={5} className="login__bg">
         </Col>
         <Col md={7} className="d-flex flex-direction-column align-items-center justify-content-center">

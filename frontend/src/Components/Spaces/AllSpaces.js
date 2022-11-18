@@ -9,8 +9,7 @@ function AllSpaces() {
                 <h5 style={{ color: "white" }}>Welcome to Spaces !!</h5>
                 <p>Follow Spaces to explore your interest on AnyDoubts</p>
 
-                <button> Create a Space </button>
-                <button> Discover Spaces </button>
+                <a href="#spaces"> <button>Discover Spaces </button></a>
             </div>
 
 
@@ -27,7 +26,7 @@ function AllSpaces() {
                 </div>
             </div>
 
-            <div className="allspaces">
+            <div className="allspaces" id='spaces'>
                 <Space url="https://interviewpreparation.quora.com/2" src="https://i0.wp.com/www.seekho.ai/blog/wp-content/uploads/2022/05/5-Reasons-Your-Job-Interview-Didnt-Land-You-the-Job.png?fit=900%2C500&ssl=1" name="Interview Preparation" desc="Guidance on Interview Preparation and Job Search" />
                 <Space url="https://www.python.org/" src="https://www.python.org/static/community_logos/python-logo-master-v3-TM-flattened.png" name="Python Coding" desc="Learn Python Tips and Tricks and Share your knowledge with us to help the society." />
                 <Space url="https://communicationskills.quora.com/" src="https://ithemes.com/wp-content/uploads/2015/05/communication-skills.png" name="Communication Skills" desc="Share Your Knowledge to deal with people." />

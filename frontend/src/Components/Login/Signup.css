@@ -31,3 +31,7 @@
     cursor: pointer;
     z-index: 10;
 }
+
+.swal-button{
+    background-color: #01ccff;
+}
