@@ -19,17 +19,29 @@ function App() {
   }, [])
 
   const [questions, setQuestions] = useState([]);
+  const [likes,setLikes] = useState(0);
   const user = Cookie?.get('user')
   const getAllQuestions = async () => {
 
     axios.post(`http://localhost:3001/api/question/userquestion`, {
       email: JSON.parse(user).email
     }).then((res) => {
-      console.log(res, "RESPONSE")
+      console.log(res.data.question, "RESPONSE")
+      let like = 0;
+      res.data.question.forEach(item => {
+        like += item.Upvotes.length;
+      });
+      setLikes(like);
       console.log(user);
       if (res.data.question)
         setQuestions(res.data.question)
     })
+  }
+
+  const handleSignout = ()=>{
+    console.log("deleting cookies and logind out")
+    Cookie.remove("user")
+    Navigate('/login')
   }
 
   useEffect(() => {
@@ -75,12 +87,12 @@ function App() {
             <h6 className="designation">{designation}</h6>
           </div>
 
-          <button className="sign-out"> <img src="http://cdn.onlinewebfonts.com/svg/img_276638.png" alt="" /> Sign Out</button>
+          <button className="sign-out" onClick={handleSignout}> <img src="http://cdn.onlinewebfonts.com/svg/img_276638.png" alt="" /> Sign Out</button>
 
           <div className="posts">
             <div className="Post">Posts <p>{questions.length}</p></div>
-            <div className="Post" style={{ marginLeft: "20px" }}>Likes <p>10</p></div>
-            <div className="Post" style={{ marginLeft: "20px" }}>Followers <p>50</p></div>
+            <div className="Post" style={{ marginLeft: "20px" }}>Reputation <p>{likes}</p></div>
+            {/* <div className="Post" style={{ marginLeft: "20px" }}>Followers <p>50</p></div> */}
           </div>
         </div>
 
