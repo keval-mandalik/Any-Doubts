@@ -30,7 +30,7 @@ const MainFeed = (props) => {
   }, [])
 
   const CategoryQuestionsCheck = (item) => {
-    console.log(item.category,CurrentCategory)
+    // console.log(item.category,CurrentCategory)
     return item.category  === CurrentCategory
   }
   

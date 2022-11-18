@@ -39,6 +39,7 @@ const QuoraBox = () => {
       },
       body: JSON.stringify({
         question: q,
+        picture:ParsedCookie.profile_picture,
         PostedBy: ParsedCookie.email,
         category: cat
       })

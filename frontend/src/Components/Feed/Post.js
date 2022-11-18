@@ -35,6 +35,7 @@ const Post = (props) => {
     const addAns = () => {
     axios.post(`http://localhost:3001/api/answer/addanswer/${question._id}`, {
         answer : html,
+        picture:JSON.parse(user).profile_picture,
         PostedBy: JSON.parse(user).email
     }).then((res)=>{
         console.log(res, "RESPONSESSSSSSS")
@@ -61,12 +62,12 @@ const Post = (props) => {
       }
     useEffect(()=>{
         getQuestionSpecificAnswer();
-    },[])
+    },[props])
 
     return (
         <div className='post'>
             <div className='post__info'>
-                <Avatar />
+                <Avatar src={question.picture}/>
                 <h4>{question.PostedBy}</h4>
                 <small>{d.toDateString()}</small>
             </div>
@@ -88,8 +89,8 @@ const Post = (props) => {
                         }}
                     >
                         <div className='modal__question'>
-                            <h1>This is test Question</h1>
-                            <p>asked by {""}<span>Username</span>{""} on{""} timestamp</p>
+                            <h3>{question.question}</h3>
+                            <p>asked by {""}<span>{question.PostedBy}</span>{""} on{""} {d.toDateString()}</p>
                         </div>
 
                         <div className='modal__answer'>
@@ -144,6 +145,7 @@ const Post = (props) => {
                     flexDirection: "column",
                     width: "100%",
                     padding: "10px 5px",
+                    color:"white"
                     // borderTop: "1px solid lightgray"
                 }} className="post-answer-container">
                     {answers.length > 0 ? answers.map((item)=>{
@@ -154,9 +156,9 @@ const Post = (props) => {
                             marginBotton: "10px",
                             fontSize: "12px",
                             fontWeight: 600,
-                            color: "white"
+                            color: "white !important"
                         }} className='post-answered'>
-                            <Avatar />
+                            <Avatar src={item.picture}/>
                             <div style={{
                                 margin: "0px 5px"
                             }} className='post-info'>

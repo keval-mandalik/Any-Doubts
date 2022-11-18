@@ -29,6 +29,9 @@ const QuestionSchema = new mongoose.Schema(
       type:Date,
       default:Date.now()
     },
+    picture: {
+      type: String,
+  },
     category:{
       type: String,
       default: 'General'

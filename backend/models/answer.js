@@ -24,6 +24,9 @@ const AnswerSchema = new mongoose.Schema(
       type:Array,
       default:[]
     },
+    picture: {
+      type: String,
+  },
     createdAt:{
       type:Date,
       default:Date.now()

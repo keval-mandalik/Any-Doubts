@@ -197,7 +197,7 @@
 }
 
 .post-answer{
-  color: white;
+  color: white !important;
 }
 
 .upvote{
